@@ -5,6 +5,6 @@
     "@neondatabase/serverless": "^0.9.4"
   },
   "engines": {
-    "node": "18.x"
+    "node": "24.x"
   }
 }
