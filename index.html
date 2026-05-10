@@ -59,7 +59,7 @@
         .auth-body { padding: 40px 30px; }
 
         .form-group { margin-bottom: 20px; }
-        .form-group label {
+        .form-group > label {
             display: block;
             font-size: 14px;
             font-weight: 600;
@@ -68,24 +68,27 @@
         }
 
         .input-icon { position: relative; }
-        .input-icon i {
+        .input-icon > i {
             position: absolute;
             left: 16px;
             top: 50%;
             transform: translateY(-50%);
             color: #a0aec0;
             font-size: 16px;
+            pointer-events: none;
         }
 
         .form-control {
             width: 100%;
-            padding: 14px 16px 14px 48px;
+            padding: 14px 16px;
             border: 2px solid #e2e8f0;
             border-radius: 12px;
             font-size: 15px;
             transition: all 0.3s;
             font-family: inherit;
         }
+
+        .input-icon .form-control { padding-left: 48px; }
 
         .form-control:focus {
             outline: none;
@@ -236,7 +239,7 @@
         /* Stats */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
             margin-bottom: 24px;
         }
@@ -255,13 +258,14 @@
         .stat-card:hover { transform: translateY(-4px); }
 
         .stat-icon {
-            width: 64px;
-            height: 64px;
+            width: 56px;
+            height: 56px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 24px;
+            flex-shrink: 0;
         }
 
         .stat-icon.pendientes { background: #fef3c7; color: #d97706; }
@@ -270,13 +274,14 @@
         .stat-icon.clientes { background: #e9d8fd; color: #6b46c1; }
 
         .stat-content h3 {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 800;
             color: #2d3748;
             margin-bottom: 4px;
+            line-height: 1;
         }
 
-        .stat-content p { font-size: 14px; color: #718096; font-weight: 500; }
+        .stat-content p { font-size: 13px; color: #718096; font-weight: 500; }
 
         /* Cards */
         .card {
@@ -291,7 +296,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .card-header i { font-size: 24px; color: #667eea; }
@@ -345,11 +350,6 @@
             gap: 20px;
         }
 
-        textarea.form-control {
-            min-height: 80px;
-            resize: vertical;
-        }
-
         /* Form section */
         .form-section {
             background: #f8fafc;
@@ -368,19 +368,230 @@
         }
 
         .form-section h3 {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
-            color: #4a5568;
-            margin-bottom: 16px;
+            color: #2d3748;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
+
+        .form-section h3 i { color: #667eea; }
 
         .form-actions {
             display: flex;
             gap: 12px;
             margin-top: 8px;
+        }
+
+        /* Autocomplete */
+        .autocomplete-wrapper { position: relative; }
+
+        .autocomplete-dropdown {
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            max-height: 280px;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .dropdown-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            border-bottom: 1px solid #f7fafc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            transition: background 0.15s;
+        }
+
+        .dropdown-item:hover { background: #ebf4ff; }
+        .dropdown-item:last-child { border-bottom: none; }
+
+        .dropdown-item.create-new {
+            background: #faf5ff;
+            color: #6b46c1;
+            font-weight: 600;
+            border-top: 2px solid #e9d8fd;
+        }
+        .dropdown-item.create-new:hover { background: #e9d8fd; }
+        .dropdown-item.create-new i { margin-right: 8px; }
+
+        /* Selected card (cliente existente) */
+        .selected-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 18px;
+            background: #ebf8ff;
+            border: 2px solid #4299e1;
+            border-radius: 12px;
+            gap: 12px;
+        }
+
+        .selected-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .selected-info > div {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .selected-info strong {
+            display: block;
+            color: #2d3748;
+            font-size: 15px;
+            margin-bottom: 2px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .selected-info span {
+            font-size: 13px;
+            color: #4a5568;
+            display: block;
+        }
+
+        /* New block (cliente nuevo) */
+        .new-block {
+            background: #fffaf0;
+            border: 2px solid #ed8936;
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .new-block-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            font-size: 14px;
+            color: #9c4221;
+        }
+
+        .new-block-header i { margin-right: 6px; }
+        .new-block-header strong { color: #7b341e; }
+
+        .new-block input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid #fbd38d;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            background: white;
+            font-family: inherit;
+        }
+
+        .new-block input:last-child { margin-bottom: 0; }
+        .new-block input:focus {
+            outline: none;
+            border-color: #ed8936;
+            box-shadow: 0 0 0 3px rgba(237, 137, 54, 0.15);
+        }
+
+        .btn-icon-x {
+            background: transparent;
+            border: none;
+            font-size: 16px;
+            color: #718096;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .btn-icon-x:hover { background: #fed7d7; color: #c53030; }
+
+        /* Producto rows */
+        .producto-row {
+            display: grid;
+            grid-template-columns: 1fr 90px 110px 90px 40px;
+            gap: 8px;
+            align-items: start;
+            padding: 12px;
+            background: #f7fafc;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .producto-row.is-new {
+            background: #fffaf0;
+            border-left-color: #ed8936;
+        }
+
+        .producto-row.is-existing {
+            background: #ebf8ff;
+            border-left-color: #4299e1;
+        }
+
+        .producto-row .form-control {
+            padding: 10px 12px;
+            font-size: 14px;
+        }
+
+        .prod-subtotal {
+            font-weight: 700;
+            color: #2d3748;
+            text-align: right;
+            padding: 10px 4px;
+            font-size: 14px;
+        }
+
+        .btn-add-row {
+            width: 100%;
+            padding: 14px;
+            background: white;
+            border: 2px dashed #cbd5e0;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #667eea;
+            margin-top: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .btn-add-row:hover {
+            border-color: #667eea;
+            background: #ebf4ff;
+        }
+
+        .total-display {
+            text-align: right;
+            font-size: 18px;
+            margin: 24px 0;
+            color: #2d3748;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 12px;
+        }
+
+        .total-display strong {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            font-size: 28px;
+            margin-left: 12px;
         }
 
         /* Table */
@@ -401,30 +612,32 @@
         }
 
         th {
-            padding: 16px;
+            padding: 14px 16px;
             text-align: left;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         td {
-            padding: 16px;
+            padding: 14px 16px;
             border-bottom: 1px solid #e2e8f0;
             font-size: 14px;
-            vertical-align: middle;
+            vertical-align: top;
         }
 
         tbody tr { transition: background 0.2s; }
         tbody tr:hover { background: #f7fafc; }
 
         .badge {
-            padding: 6px 12px;
+            padding: 5px 10px;
             border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 11px;
+            font-weight: 700;
             display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
         .badge-pendiente { background: #fef3c7; color: #92400e; }
@@ -432,23 +645,6 @@
         .badge-en_ruta { background: #dbeafe; color: #1e40af; }
         .badge-entregado { background: #d1fae5; color: #065f46; }
         .badge-cancelado { background: #fed7d7; color: #9b2c2c; }
-
-        .btn-icon {
-            background: transparent;
-            border: none;
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            margin: 0 2px;
-            transition: all 0.2s;
-        }
-
-        .btn-icon.edit { color: #667eea; background: #ebf4ff; }
-        .btn-icon.edit:hover { background: #c3dafe; transform: scale(1.05); }
-        .btn-icon.delete { color: #e53e3e; background: #fed7d7; }
-        .btn-icon.delete:hover { background: #feb2b2; transform: scale(1.05); }
 
         /* Empty state */
         .empty-state {
@@ -465,18 +661,6 @@
         }
 
         .empty-state p { font-size: 15px; }
-
-        /* Construction */
-        .construction { text-align: center; padding: 60px 20px; }
-        .construction i { font-size: 80px; color: #fbb040; margin-bottom: 20px; }
-        .construction h2 { font-size: 26px; color: #2d3748; margin-bottom: 12px; }
-        .construction p {
-            color: #718096;
-            font-size: 15px;
-            max-width: 500px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
 
         /* Alerts */
         .alert {
@@ -518,6 +702,20 @@
             .tab-button.active span.tab-label { display: inline; }
             .card { padding: 20px; }
             .card-header-action { flex-direction: column; align-items: stretch; }
+            .producto-row {
+                grid-template-columns: 1fr 70px 90px 36px;
+                grid-template-areas:
+                    "input input input remove"
+                    "cant precio sub sub";
+                gap: 6px;
+            }
+            .producto-row > div:first-child { grid-area: input; }
+            .producto-row .prod-cantidad { grid-area: cant; }
+            .producto-row .prod-precio { grid-area: precio; }
+            .producto-row .prod-subtotal { grid-area: sub; }
+            .producto-row .btn-icon-x { grid-area: remove; }
+            .total-display { font-size: 16px; }
+            .total-display strong { font-size: 24px; }
         }
     </style>
 </head>
@@ -635,12 +833,6 @@
                 <button class="tab-button active" data-tab="inicio" onclick="switchTab('inicio')">
                     <i class="fas fa-home"></i><span class="tab-label">Inicio</span>
                 </button>
-                <button class="tab-button" data-tab="clientes" onclick="switchTab('clientes')">
-                    <i class="fas fa-users"></i><span class="tab-label">Clientes</span>
-                </button>
-                <button class="tab-button" data-tab="productos" onclick="switchTab('productos')">
-                    <i class="fas fa-box"></i><span class="tab-label">Productos</span>
-                </button>
                 <button class="tab-button" data-tab="pedidos" onclick="switchTab('pedidos')">
                     <i class="fas fa-clipboard-list"></i><span class="tab-label">Pedidos</span>
                 </button>
@@ -653,28 +845,28 @@
                         <div class="stat-icon clientes"><i class="fas fa-users"></i></div>
                         <div class="stat-content">
                             <h3 id="statClientes">0</h3>
-                            <p>Clientes Registrados</p>
+                            <p>Clientes registrados</p>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon pendientes"><i class="fas fa-clock"></i></div>
                         <div class="stat-content">
-                            <h3 id="statPendientes">—</h3>
-                            <p>Pedidos Pendientes</p>
+                            <h3 id="statPendientes">0</h3>
+                            <p>Pedidos pendientes</p>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon camino"><i class="fas fa-truck"></i></div>
                         <div class="stat-content">
-                            <h3 id="statCamino">—</h3>
-                            <p>En Ruta</p>
+                            <h3 id="statCamino">0</h3>
+                            <p>En ruta</p>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon entregados"><i class="fas fa-check-circle"></i></div>
                         <div class="stat-content">
-                            <h3 id="statEntregados">—</h3>
-                            <p>Entregados Hoy</p>
+                            <h3 id="statEntregados">0</h3>
+                            <p>Entregados hoy</p>
                         </div>
                     </div>
                 </div>
@@ -682,129 +874,144 @@
                 <div class="card">
                     <div class="card-header">
                         <i class="fas fa-info-circle"></i>
-                        <h2>Bienvenido a App Retail</h2>
+                        <h2>Cómo usar App Retail</h2>
                     </div>
                     <p style="color: #4a5568; line-height: 1.7;">
-                        Estás construyendo el sistema que ordena el caos del WhatsApp y los cuadernos.
-                        Empieza por cargar tus <strong>clientes</strong> en la pestaña correspondiente.
-                        Las pestañas de Productos y Pedidos estarán disponibles próximamente.
+                        Cuando entre un pedido por WhatsApp o llamada, ve a la pestaña <strong>Pedidos</strong>
+                        y dale a <strong>+ Nuevo Pedido</strong>. Escribe el nombre del cliente: si ya existe
+                        aparecerá en sugerencias y se autollenan sus datos. Si es nuevo, lo creas en el momento.
+                        Lo mismo con los productos. Total se calcula solo. En segundos queda registrado y no se pierde.
                     </p>
-                </div>
-            </div>
-
-            <!-- Clientes -->
-            <div id="view-clientes" class="view">
-                <div class="card">
-                    <div class="card-header-action">
-                        <h2><i class="fas fa-users"></i> Mis Clientes</h2>
-                        <button class="btn btn-primary" onclick="mostrarFormCliente()">
-                            <i class="fas fa-plus"></i> Nuevo Cliente
-                        </button>
-                    </div>
-
-                    <div id="alertContainerClientes"></div>
-
-                    <div id="formClienteSection" class="form-section hidden">
-                        <h3>
-                            <i class="fas fa-user-plus"></i>
-                            <span id="formClienteTitulo">Nuevo cliente</span>
-                        </h3>
-                        <input type="hidden" id="clienteIdEdit" value="">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Nombre / Negocio *</label>
-                                <div class="input-icon">
-                                    <i class="fas fa-user"></i>
-                                    <input type="text" id="clNombre" class="form-control" placeholder="Tienda Doña Rosa">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Teléfono</label>
-                                <div class="input-icon">
-                                    <i class="fas fa-phone"></i>
-                                    <input type="text" id="clTelefono" class="form-control" placeholder="0991234567">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Dirección *</label>
-                            <div class="input-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <input type="text" id="clDireccion" class="form-control" placeholder="Av. Atahualpa y Río Amazonas">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Referencia</label>
-                            <div class="input-icon">
-                                <i class="fas fa-info-circle"></i>
-                                <input type="text" id="clReferencia" class="form-control" placeholder="Frente al parque, casa azul">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Notas</label>
-                            <textarea id="clNotas" class="form-control" style="padding-left: 16px;" placeholder="Solo recibe pedidos hasta las 5pm..."></textarea>
-                        </div>
-                        <div class="form-actions">
-                            <button class="btn btn-primary" onclick="guardarCliente()">
-                                <i class="fas fa-save"></i> <span id="btnGuardarTexto">Guardar Cliente</span>
-                            </button>
-                            <button class="btn-secondary" onclick="cancelarCliente()">
-                                <i class="fas fa-times"></i> Cancelar
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th><i class="fas fa-user"></i> Nombre</th>
-                                    <th><i class="fas fa-phone"></i> Teléfono</th>
-                                    <th><i class="fas fa-map-marker-alt"></i> Dirección</th>
-                                    <th><i class="fas fa-info-circle"></i> Referencia</th>
-                                    <th><i class="fas fa-cog"></i> Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody id="clientesTable">
-                                <tr>
-                                    <td colspan="5">
-                                        <div class="empty-state">
-                                            <i class="fas fa-users-slash"></i>
-                                            <p>No tienes clientes registrados aún. ¡Agrega el primero!</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Productos -->
-            <div id="view-productos" class="view">
-                <div class="card">
-                    <div class="construction">
-                        <i class="fas fa-tools"></i>
-                        <h2>Productos — En construcción</h2>
-                        <p>
-                            Aquí vas a poder dar de alta tu catálogo (cervezas, licores, aguas, etc.)
-                            con precio y stock. Próxima sesión lo activamos.
-                        </p>
-                    </div>
+                    <p style="color: #4a5568; line-height: 1.7; margin-top: 12px;">
+                        <strong>Próximamente:</strong> asignación de chofer, cambios de estado, mapa de entregas y reportes.
+                    </p>
                 </div>
             </div>
 
             <!-- Pedidos -->
             <div id="view-pedidos" class="view">
                 <div class="card">
-                    <div class="construction">
-                        <i class="fas fa-tools"></i>
-                        <h2>Pedidos — En reconstrucción</h2>
-                        <p>
-                            Estamos rehaciendo este módulo para que se conecte con Clientes y Productos.
-                            Vas a poder seleccionar un cliente, agregar productos, calcular total automáticamente,
-                            y asignar el pedido a un chofer.
-                        </p>
+                    <div class="card-header-action">
+                        <h2><i class="fas fa-clipboard-list"></i> Pedidos</h2>
+                        <button class="btn btn-primary" onclick="mostrarFormPedido()">
+                            <i class="fas fa-plus"></i> Nuevo Pedido
+                        </button>
+                    </div>
+
+                    <div id="alertContainerPedidos"></div>
+
+                    <!-- FORM NUEVO PEDIDO -->
+                    <div id="formPedidoSection" class="form-section hidden">
+                        <h3><i class="fas fa-clipboard"></i> Nuevo pedido</h3>
+
+                        <!-- CLIENTE -->
+                        <div class="form-group">
+                            <label>Cliente *</label>
+
+                            <!-- Estado A: buscar -->
+                            <div id="clienteSearchWrapper" class="autocomplete-wrapper">
+                                <div class="input-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="clienteInput" class="form-control"
+                                           placeholder="Buscar cliente o escribir nombre del nuevo..."
+                                           autocomplete="off" oninput="onClienteInput()">
+                                </div>
+                                <div id="clienteDropdown" class="autocomplete-dropdown hidden"></div>
+                            </div>
+
+                            <!-- Estado B: cliente existente seleccionado -->
+                            <div id="clienteSelected" class="selected-card hidden">
+                                <div class="selected-info">
+                                    <i class="fas fa-circle-check" style="color: #4299e1; font-size: 22px;"></i>
+                                    <div>
+                                        <strong id="clienteSelectedNombre"></strong>
+                                        <span id="clienteSelectedDetalle"></span>
+                                    </div>
+                                </div>
+                                <button class="btn-icon-x" onclick="resetCliente()" title="Cambiar cliente">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+
+                            <!-- Estado C: cliente nuevo -->
+                            <div id="clienteNew" class="new-block hidden">
+                                <div class="new-block-header">
+                                    <span><i class="fas fa-user-plus"></i> Nuevo cliente: <strong id="clienteNewNombre"></strong></span>
+                                    <button class="btn-icon-x" onclick="resetCliente()"><i class="fas fa-times"></i></button>
+                                </div>
+                                <input type="text" id="newClienteTelefono" placeholder="Teléfono (opcional)">
+                                <input type="text" id="newClienteDireccion" placeholder="Dirección *">
+                                <input type="text" id="newClienteReferencia" placeholder="Referencia (ej: casa azul, frente al parque)">
+                            </div>
+                        </div>
+
+                        <!-- PRODUCTOS -->
+                        <div class="form-group">
+                            <label>Productos *</label>
+                            <div id="productosLista"></div>
+                            <button class="btn-add-row" onclick="addProductoRow()">
+                                <i class="fas fa-plus-circle"></i> Agregar producto
+                            </button>
+                        </div>
+
+                        <!-- TOTAL -->
+                        <div class="total-display">
+                            Total: <strong id="totalDisplay">$0.00</strong>
+                        </div>
+
+                        <!-- META -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Fecha de entrega</label>
+                                <div class="input-icon">
+                                    <i class="fas fa-calendar"></i>
+                                    <input type="datetime-local" id="pedidoFechaEntrega" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Notas</label>
+                                <div class="input-icon">
+                                    <i class="fas fa-sticky-note"></i>
+                                    <input type="text" id="pedidoNotas" class="form-control"
+                                           placeholder="Pagar al recibir, dejar en portería...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary" onclick="guardarPedido()">
+                                <i class="fas fa-save"></i> Guardar Pedido
+                            </button>
+                            <button class="btn-secondary" onclick="cancelarPedido()">
+                                <i class="fas fa-times"></i> Cancelar
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- LISTA DE PEDIDOS -->
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Cliente</th>
+                                    <th>Productos</th>
+                                    <th>Total</th>
+                                    <th>Fecha entrega</th>
+                                    <th>Estado</th>
+                                    <th>Creado</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pedidosTable">
+                                <tr>
+                                    <td colspan="6">
+                                        <div class="empty-state">
+                                            <i class="fas fa-clipboard"></i>
+                                            <p>No hay pedidos registrados aún. Crea el primero.</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -815,7 +1022,14 @@
         const API_URL = `${window.location.origin}/api`;
         let currentUser = null;
         let clientesCache = [];
+        let productosCache = [];
+        let pedidosCache = [];
 
+        // Estado del formulario de pedido
+        let formClienteState = { mode: 'search', cliente_id: null, nombre: '' };
+        let productosPedido = []; // [{ producto_id, nombre, cantidad, precio_unitario } | null]
+
+        // ========== UTIL ==========
         function showAlert(containerId, message, type) {
             const container = document.getElementById(containerId);
             if (!container) return;
@@ -833,7 +1047,11 @@
                 .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
         }
 
-        // ============ AUTH ============
+        function formatCurrency(n) {
+            return '$' + (parseFloat(n) || 0).toFixed(2);
+        }
+
+        // ========== AUTH ==========
         function showRegister() {
             document.getElementById('loginSection').classList.add('hidden');
             document.getElementById('registerSection').classList.remove('hidden');
@@ -900,12 +1118,14 @@
             }
         }
 
-        function showDashboard() {
+        async function showDashboard() {
             document.getElementById('loginSection').classList.add('hidden');
             document.getElementById('registerSection').classList.add('hidden');
             document.getElementById('dashboardSection').classList.remove('hidden');
             document.getElementById('userName').textContent = currentUser.nombre_completo;
             document.getElementById('userEmpresa').textContent = currentUser.empresa_nombre;
+            await Promise.all([cargarClientes(), cargarProductos(), cargarPedidos()]);
+            actualizarStats();
             switchTab('inicio');
         }
 
@@ -914,7 +1134,7 @@
             location.reload();
         }
 
-        // ============ TABS ============
+        // ========== TABS ==========
         function switchTab(tab) {
             document.querySelectorAll('.tab-button').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.tab === tab);
@@ -922,25 +1142,25 @@
             document.querySelectorAll('.view').forEach(v => {
                 v.classList.toggle('active', v.id === `view-${tab}`);
             });
-            if (tab === 'clientes') cargarClientes();
-            if (tab === 'inicio') cargarStats();
+            if (tab === 'pedidos') renderPedidos();
+            if (tab === 'inicio') actualizarStats();
         }
 
-        async function cargarStats() {
-            try {
-                const res = await fetch(`${API_URL}/clientes`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'listar', empresa_id: currentUser.empresa_id })
-                });
-                const data = await res.json();
-                if (res.ok) {
-                    document.getElementById('statClientes').textContent = (data.clientes || []).length;
-                }
-            } catch (e) { /* silencioso */ }
+        // ========== STATS ==========
+        function actualizarStats() {
+            document.getElementById('statClientes').textContent = clientesCache.length;
+            document.getElementById('statPendientes').textContent =
+                pedidosCache.filter(p => p.estado === 'pendiente').length;
+            document.getElementById('statCamino').textContent =
+                pedidosCache.filter(p => p.estado === 'en_ruta').length;
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('statEntregados').textContent =
+                pedidosCache.filter(p =>
+                    p.estado === 'entregado' && p.created_at && p.created_at.startsWith(today)
+                ).length;
         }
 
-        // ============ CLIENTES ============
+        // ========== CARGAR DATOS ==========
         async function cargarClientes() {
             try {
                 const res = await fetch(`${API_URL}/clientes`, {
@@ -949,148 +1169,426 @@
                     body: JSON.stringify({ action: 'listar', empresa_id: currentUser.empresa_id })
                 });
                 const data = await res.json();
-                if (!res.ok) {
-                    showAlert('alertContainerClientes', data.error || 'Error al cargar clientes', 'error');
-                    return;
-                }
-                clientesCache = data.clientes || [];
-                renderClientes();
-            } catch (error) {
-                showAlert('alertContainerClientes', 'Error de conexión: ' + error.message, 'error');
-            }
+                if (res.ok) clientesCache = data.clientes || [];
+            } catch (e) { /* ignorar para no bloquear */ }
         }
 
-        function renderClientes() {
-            const tbody = document.getElementById('clientesTable');
-            if (clientesCache.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5">
+        async function cargarProductos() {
+            try {
+                const res = await fetch(`${API_URL}/productos`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'listar', empresa_id: currentUser.empresa_id })
+                });
+                const data = await res.json();
+                if (res.ok) productosCache = data.productos || [];
+            } catch (e) { /* ignorar */ }
+        }
+
+        async function cargarPedidos() {
+            try {
+                const res = await fetch(`${API_URL}/pedidos`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'listar', empresa_id: currentUser.empresa_id })
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    pedidosCache = data.pedidos || [];
+                    renderPedidos();
+                }
+            } catch (e) { /* ignorar */ }
+        }
+
+        // ========== RENDER PEDIDOS ==========
+        function renderPedidos() {
+            const tbody = document.getElementById('pedidosTable');
+            if (pedidosCache.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6">
                     <div class="empty-state">
-                        <i class="fas fa-users-slash"></i>
-                        <p>No tienes clientes registrados aún. ¡Agrega el primero!</p>
+                        <i class="fas fa-clipboard"></i>
+                        <p>No hay pedidos registrados aún. Crea el primero.</p>
                     </div>
                 </td></tr>`;
                 return;
             }
-            tbody.innerHTML = clientesCache.map(c => `
-                <tr>
-                    <td><strong>${escapeHtml(c.nombre)}</strong></td>
-                    <td>${escapeHtml(c.telefono) || '<span style="color:#a0aec0">—</span>'}</td>
-                    <td>${escapeHtml(c.direccion)}</td>
-                    <td>${escapeHtml(c.referencia) || '<span style="color:#a0aec0">—</span>'}</td>
-                    <td>
-                        <button class="btn-icon edit" onclick="editarCliente('${c.id}')" title="Editar">
-                            <i class="fas fa-edit"></i>
-                        </button>
-                        <button class="btn-icon delete" onclick="eliminarCliente('${c.id}', '${escapeHtml(c.nombre).replace(/'/g, '')}')" title="Eliminar">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            `).join('');
+            tbody.innerHTML = pedidosCache.map(p => {
+                const items = (p.items || []).map(i =>
+                    `${i.cantidad}× ${escapeHtml(i.producto_nombre)}`
+                ).join('<br>');
+                const fecha = p.fecha_entrega
+                    ? new Date(p.fecha_entrega).toLocaleString('es-EC', { dateStyle: 'short', timeStyle: 'short' })
+                    : '<span style="color:#a0aec0">—</span>';
+                const creado = new Date(p.created_at).toLocaleDateString('es-EC');
+                return `
+                    <tr>
+                        <td>
+                            <strong>${escapeHtml(p.cliente_nombre)}</strong>
+                            ${p.cliente_telefono ? `<br><span style="color:#718096;font-size:12px;">${escapeHtml(p.cliente_telefono)}</span>` : ''}
+                            ${p.cliente_direccion ? `<br><span style="color:#a0aec0;font-size:11px;">${escapeHtml(p.cliente_direccion)}</span>` : ''}
+                        </td>
+                        <td style="font-size:13px;line-height:1.5;">${items || '—'}</td>
+                        <td><strong style="color:#2d3748;font-size:15px;">${formatCurrency(p.total)}</strong></td>
+                        <td style="font-size:13px;">${fecha}</td>
+                        <td><span class="badge badge-${p.estado}">${p.estado.replace('_', ' ')}</span></td>
+                        <td style="font-size:12px;color:#718096;">${creado}</td>
+                    </tr>
+                `;
+            }).join('');
         }
 
-        function mostrarFormCliente() {
-            const section = document.getElementById('formClienteSection');
+        // ========== FORMULARIO DE PEDIDO ==========
+        function mostrarFormPedido() {
+            resetPedidoForm();
+            const section = document.getElementById('formPedidoSection');
             section.classList.remove('hidden');
             section.classList.add('editing');
-            document.getElementById('formClienteTitulo').textContent = 'Nuevo cliente';
-            document.getElementById('btnGuardarTexto').textContent = 'Guardar Cliente';
-            limpiarFormCliente();
+            // Agregar primera fila de producto por defecto
+            if (productosPedido.filter(p => p !== null).length === 0) {
+                addProductoRow();
+            }
             section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => document.getElementById('clienteInput').focus(), 100);
         }
 
-        function cancelarCliente() {
-            document.getElementById('formClienteSection').classList.add('hidden');
-            limpiarFormCliente();
+        function cancelarPedido() {
+            document.getElementById('formPedidoSection').classList.add('hidden');
+            resetPedidoForm();
         }
 
-        function limpiarFormCliente() {
-            document.getElementById('clienteIdEdit').value = '';
-            document.getElementById('clNombre').value = '';
-            document.getElementById('clTelefono').value = '';
-            document.getElementById('clDireccion').value = '';
-            document.getElementById('clReferencia').value = '';
-            document.getElementById('clNotas').value = '';
+        function resetPedidoForm() {
+            resetCliente();
+            productosPedido = [];
+            document.getElementById('productosLista').innerHTML = '';
+            document.getElementById('totalDisplay').textContent = '$0.00';
+            document.getElementById('pedidoFechaEntrega').value = '';
+            document.getElementById('pedidoNotas').value = '';
         }
 
-        function editarCliente(id) {
-            const c = clientesCache.find(x => x.id === id);
-            if (!c) return;
-            document.getElementById('formClienteSection').classList.remove('hidden');
-            document.getElementById('formClienteSection').classList.add('editing');
-            document.getElementById('formClienteTitulo').textContent = `Editar: ${c.nombre}`;
-            document.getElementById('btnGuardarTexto').textContent = 'Guardar Cambios';
-            document.getElementById('clienteIdEdit').value = c.id;
-            document.getElementById('clNombre').value = c.nombre || '';
-            document.getElementById('clTelefono').value = c.telefono || '';
-            document.getElementById('clDireccion').value = c.direccion || '';
-            document.getElementById('clReferencia').value = c.referencia || '';
-            document.getElementById('clNotas').value = c.notas || '';
-            document.getElementById('formClienteSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        // ========== AUTOCOMPLETE: CLIENTE ==========
+        function onClienteInput() {
+            const input = document.getElementById('clienteInput');
+            const dropdown = document.getElementById('clienteDropdown');
+            const query = input.value.trim().toLowerCase();
 
-        async function guardarCliente() {
-            const id = document.getElementById('clienteIdEdit').value;
-            const nombre = document.getElementById('clNombre').value.trim();
-            const direccion = document.getElementById('clDireccion').value.trim();
-            if (!nombre || !direccion) {
-                showAlert('alertContainerClientes', 'Nombre y dirección son obligatorios', 'error');
+            if (query.length === 0) {
+                dropdown.classList.add('hidden');
                 return;
             }
+
+            const matches = clientesCache.filter(c => {
+                const n = (c.nombre || '').toLowerCase();
+                const t = (c.telefono || '').toLowerCase();
+                return n.includes(query) || t.includes(query);
+            }).slice(0, 6);
+
+            let html = '';
+            for (const c of matches) {
+                const detalle = [c.telefono, c.direccion].filter(Boolean).join(' · ');
+                html += `
+                    <div class="dropdown-item" onclick="selectClienteExistente('${c.id}')">
+                        <div style="flex:1;min-width:0;">
+                            <strong>${escapeHtml(c.nombre)}</strong>
+                            <span style="color:#718096;font-size:12px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                                ${escapeHtml(detalle)}
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }
+
+            const exactMatch = matches.some(c => c.nombre.toLowerCase() === query);
+            if (!exactMatch) {
+                html += `
+                    <div class="dropdown-item create-new" onclick="selectClienteNuevo()">
+                        <span><i class="fas fa-plus-circle"></i> Crear nuevo: "<strong>${escapeHtml(input.value)}</strong>"</span>
+                    </div>
+                `;
+            }
+
+            dropdown.innerHTML = html;
+            dropdown.classList.remove('hidden');
+        }
+
+        function selectClienteExistente(id) {
+            const c = clientesCache.find(x => x.id === id);
+            if (!c) return;
+            formClienteState = { mode: 'selected', cliente_id: id, nombre: c.nombre };
+            document.getElementById('clienteSearchWrapper').classList.add('hidden');
+            document.getElementById('clienteNew').classList.add('hidden');
+            document.getElementById('clienteSelectedNombre').textContent = c.nombre;
+            const detalle = [c.telefono, c.direccion].filter(Boolean).join(' · ');
+            document.getElementById('clienteSelectedDetalle').textContent = detalle || 'Sin datos adicionales';
+            document.getElementById('clienteSelected').classList.remove('hidden');
+            document.getElementById('clienteDropdown').classList.add('hidden');
+        }
+
+        function selectClienteNuevo() {
+            const nombre = document.getElementById('clienteInput').value.trim();
+            if (!nombre) return;
+            formClienteState = { mode: 'new', cliente_id: null, nombre };
+            document.getElementById('clienteSearchWrapper').classList.add('hidden');
+            document.getElementById('clienteSelected').classList.add('hidden');
+            document.getElementById('clienteNewNombre').textContent = nombre;
+            document.getElementById('newClienteTelefono').value = '';
+            document.getElementById('newClienteDireccion').value = '';
+            document.getElementById('newClienteReferencia').value = '';
+            document.getElementById('clienteNew').classList.remove('hidden');
+            document.getElementById('clienteDropdown').classList.add('hidden');
+            setTimeout(() => document.getElementById('newClienteDireccion').focus(), 50);
+        }
+
+        function resetCliente() {
+            formClienteState = { mode: 'search', cliente_id: null, nombre: '' };
+            document.getElementById('clienteSelected').classList.add('hidden');
+            document.getElementById('clienteNew').classList.add('hidden');
+            document.getElementById('clienteSearchWrapper').classList.remove('hidden');
+            document.getElementById('clienteInput').value = '';
+            document.getElementById('clienteDropdown').classList.add('hidden');
+            setTimeout(() => document.getElementById('clienteInput').focus(), 50);
+        }
+
+        // Cerrar dropdown al hacer click fuera
+        document.addEventListener('click', (e) => {
+            const clienteWrapper = document.getElementById('clienteSearchWrapper');
+            if (clienteWrapper && !clienteWrapper.contains(e.target)) {
+                document.getElementById('clienteDropdown')?.classList.add('hidden');
+            }
+            document.querySelectorAll('.autocomplete-dropdown[data-dropdown-idx]').forEach(dd => {
+                const wrapper = dd.parentElement;
+                if (!wrapper.contains(e.target)) dd.classList.add('hidden');
+            });
+        });
+
+        // ========== AUTOCOMPLETE: PRODUCTOS DEL PEDIDO ==========
+        function addProductoRow() {
+            const idx = productosPedido.length;
+            productosPedido.push({ producto_id: null, nombre: '', cantidad: 1, precio_unitario: 0 });
+
+            const row = document.createElement('div');
+            row.className = 'producto-row';
+            row.dataset.idx = idx;
+            row.innerHTML = `
+                <div class="autocomplete-wrapper">
+                    <input type="text" class="form-control prod-input" data-idx="${idx}"
+                           placeholder="Buscar o escribir producto..." autocomplete="off"
+                           oninput="onProductoInput(${idx})">
+                    <div class="autocomplete-dropdown hidden" data-dropdown-idx="${idx}"></div>
+                </div>
+                <input type="number" class="form-control prod-cantidad" data-idx="${idx}"
+                       min="1" value="1" placeholder="Cant"
+                       oninput="onProductoCantidadChange(${idx})">
+                <input type="number" class="form-control prod-precio" data-idx="${idx}"
+                       min="0" step="0.01" value="0" placeholder="Precio"
+                       oninput="onProductoPrecioChange(${idx})">
+                <span class="prod-subtotal" data-idx="${idx}">$0.00</span>
+                <button class="btn-icon-x" onclick="removeProductoRow(${idx})" title="Quitar producto">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            document.getElementById('productosLista').appendChild(row);
+            setTimeout(() => document.querySelector(`.prod-input[data-idx="${idx}"]`)?.focus(), 50);
+        }
+
+        function onProductoInput(idx) {
+            const input = document.querySelector(`.prod-input[data-idx="${idx}"]`);
+            const dropdown = document.querySelector(`.autocomplete-dropdown[data-dropdown-idx="${idx}"]`);
+            const row = document.querySelector(`.producto-row[data-idx="${idx}"]`);
+            const query = input.value.trim().toLowerCase();
+
+            // Marcar como modificado: ya no es selección
+            productosPedido[idx].nombre = input.value;
+            productosPedido[idx].producto_id = null;
+            row.classList.remove('is-existing');
+            row.classList.remove('is-new');
+
+            if (query.length === 0) {
+                dropdown.classList.add('hidden');
+                return;
+            }
+
+            const matches = productosCache.filter(p =>
+                (p.nombre || '').toLowerCase().includes(query)
+            ).slice(0, 6);
+
+            let html = '';
+            for (const p of matches) {
+                html += `
+                    <div class="dropdown-item" onclick="selectProductoExistente(${idx}, '${p.id}')">
+                        <div style="flex:1;min-width:0;">
+                            <strong>${escapeHtml(p.nombre)}</strong>
+                            ${p.categoria ? `<span style="color:#718096;font-size:12px;display:block;">${escapeHtml(p.categoria)}</span>` : ''}
+                        </div>
+                        <span style="font-weight:700;color:#667eea;white-space:nowrap;">${formatCurrency(p.precio)}</span>
+                    </div>
+                `;
+            }
+
+            const exactMatch = matches.some(p => p.nombre.toLowerCase() === query);
+            if (!exactMatch) {
+                html += `
+                    <div class="dropdown-item create-new" onclick="markProductoAsNew(${idx})">
+                        <span><i class="fas fa-plus-circle"></i> Usar como nuevo: "<strong>${escapeHtml(input.value)}</strong>"</span>
+                    </div>
+                `;
+            }
+
+            dropdown.innerHTML = html;
+            dropdown.classList.remove('hidden');
+        }
+
+        function selectProductoExistente(idx, id) {
+            const p = productosCache.find(x => x.id === id);
+            if (!p) return;
+            productosPedido[idx].producto_id = id;
+            productosPedido[idx].nombre = p.nombre;
+            productosPedido[idx].precio_unitario = parseFloat(p.precio) || 0;
+
+            document.querySelector(`.prod-input[data-idx="${idx}"]`).value = p.nombre;
+            document.querySelector(`.prod-precio[data-idx="${idx}"]`).value =
+                (parseFloat(p.precio) || 0).toFixed(2);
+            document.querySelector(`.autocomplete-dropdown[data-dropdown-idx="${idx}"]`).classList.add('hidden');
+
+            const row = document.querySelector(`.producto-row[data-idx="${idx}"]`);
+            row.classList.add('is-existing');
+            row.classList.remove('is-new');
+
+            updateRowSubtotal(idx);
+            updateTotal();
+        }
+
+        function markProductoAsNew(idx) {
+            productosPedido[idx].producto_id = null;
+            productosPedido[idx].nombre = document.querySelector(`.prod-input[data-idx="${idx}"]`).value;
+            document.querySelector(`.autocomplete-dropdown[data-dropdown-idx="${idx}"]`).classList.add('hidden');
+            const row = document.querySelector(`.producto-row[data-idx="${idx}"]`);
+            row.classList.add('is-new');
+            row.classList.remove('is-existing');
+            document.querySelector(`.prod-precio[data-idx="${idx}"]`).focus();
+        }
+
+        function onProductoCantidadChange(idx) {
+            const v = parseInt(document.querySelector(`.prod-cantidad[data-idx="${idx}"]`).value) || 0;
+            productosPedido[idx].cantidad = v;
+            updateRowSubtotal(idx);
+            updateTotal();
+        }
+
+        function onProductoPrecioChange(idx) {
+            const v = parseFloat(document.querySelector(`.prod-precio[data-idx="${idx}"]`).value) || 0;
+            productosPedido[idx].precio_unitario = v;
+            updateRowSubtotal(idx);
+            updateTotal();
+        }
+
+        function updateRowSubtotal(idx) {
+            const item = productosPedido[idx];
+            if (!item) return;
+            const subtotal = (item.cantidad || 0) * (item.precio_unitario || 0);
+            const cell = document.querySelector(`.prod-subtotal[data-idx="${idx}"]`);
+            if (cell) cell.textContent = formatCurrency(subtotal);
+        }
+
+        function updateTotal() {
+            const total = productosPedido.reduce((sum, item) => {
+                if (!item) return sum;
+                return sum + (item.cantidad || 0) * (item.precio_unitario || 0);
+            }, 0);
+            document.getElementById('totalDisplay').textContent = formatCurrency(total);
+        }
+
+        function removeProductoRow(idx) {
+            productosPedido[idx] = null;
+            const row = document.querySelector(`.producto-row[data-idx="${idx}"]`);
+            if (row) row.remove();
+            updateTotal();
+            // Si no queda ninguno, agregar uno vacío
+            if (productosPedido.filter(p => p !== null).length === 0) {
+                addProductoRow();
+            }
+        }
+
+        // ========== GUARDAR PEDIDO ==========
+        async function guardarPedido() {
+            // Validar cliente
+            let clientePayload;
+            if (formClienteState.mode === 'selected' && formClienteState.cliente_id) {
+                clientePayload = { id: formClienteState.cliente_id };
+            } else if (formClienteState.mode === 'new') {
+                const direccion = document.getElementById('newClienteDireccion').value.trim();
+                if (!formClienteState.nombre || !direccion) {
+                    showAlert('alertContainerPedidos', 'El cliente nuevo necesita nombre y dirección', 'error');
+                    return;
+                }
+                clientePayload = {
+                    nombre: formClienteState.nombre,
+                    telefono: document.getElementById('newClienteTelefono').value.trim() || null,
+                    direccion,
+                    referencia: document.getElementById('newClienteReferencia').value.trim() || null
+                };
+            } else {
+                showAlert('alertContainerPedidos', 'Selecciona o crea un cliente primero', 'error');
+                return;
+            }
+
+            // Validar productos
+            const items = productosPedido.filter(p => p !== null);
+            if (items.length === 0) {
+                showAlert('alertContainerPedidos', 'Agrega al menos un producto', 'error');
+                return;
+            }
+            for (const item of items) {
+                if (!item.nombre || !item.nombre.trim()) {
+                    showAlert('alertContainerPedidos', 'Todos los productos deben tener nombre', 'error');
+                    return;
+                }
+                if (!item.cantidad || item.cantidad <= 0) {
+                    showAlert('alertContainerPedidos', 'Las cantidades deben ser mayores a 0', 'error');
+                    return;
+                }
+                if (item.precio_unitario < 0) {
+                    showAlert('alertContainerPedidos', 'Los precios no pueden ser negativos', 'error');
+                    return;
+                }
+            }
+
             const payload = {
-                action: id ? 'actualizar' : 'crear',
+                action: 'crear',
                 empresa_id: currentUser.empresa_id,
-                cliente_id: id || undefined,
-                nombre,
-                telefono: document.getElementById('clTelefono').value.trim() || null,
-                direccion,
-                referencia: document.getElementById('clReferencia').value.trim() || null,
-                notas: document.getElementById('clNotas').value.trim() || null
+                created_by: currentUser.id,
+                cliente: clientePayload,
+                items: items.map(i => ({
+                    producto_id: i.producto_id || null,
+                    nombre: i.nombre,
+                    cantidad: i.cantidad,
+                    precio_unitario: i.precio_unitario
+                })),
+                fecha_entrega: document.getElementById('pedidoFechaEntrega').value || null,
+                notas: document.getElementById('pedidoNotas').value.trim() || null
             };
+
             try {
-                const res = await fetch(`${API_URL}/clientes`, {
+                const res = await fetch(`${API_URL}/pedidos`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
                 const data = await res.json();
                 if (!res.ok) {
-                    showAlert('alertContainerClientes', data.error || 'Error al guardar', 'error');
+                    showAlert('alertContainerPedidos', data.error || 'Error al guardar pedido', 'error');
                     return;
                 }
-                showAlert('alertContainerClientes', id ? 'Cliente actualizado' : 'Cliente creado', 'success');
-                cancelarCliente();
-                cargarClientes();
+                showAlert('alertContainerPedidos', '✓ Pedido creado exitosamente', 'success');
+                cancelarPedido();
+                // Refrescar caches
+                await Promise.all([cargarClientes(), cargarProductos(), cargarPedidos()]);
+                actualizarStats();
             } catch (error) {
-                showAlert('alertContainerClientes', 'Error de conexión: ' + error.message, 'error');
+                showAlert('alertContainerPedidos', 'Error de conexión: ' + error.message, 'error');
             }
         }
 
-        async function eliminarCliente(id, nombre) {
-            if (!confirm(`¿Eliminar al cliente "${nombre}"?`)) return;
-            try {
-                const res = await fetch(`${API_URL}/clientes`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        action: 'eliminar',
-                        empresa_id: currentUser.empresa_id,
-                        cliente_id: id
-                    })
-                });
-                const data = await res.json();
-                if (!res.ok) {
-                    showAlert('alertContainerClientes', data.error || 'Error al eliminar', 'error');
-                    return;
-                }
-                showAlert('alertContainerClientes', 'Cliente eliminado', 'success');
-                cargarClientes();
-            } catch (error) {
-                showAlert('alertContainerClientes', 'Error de conexión: ' + error.message, 'error');
-            }
-        }
-
-        // ============ INIT ============
+        // ========== INIT ==========
         window.onload = () => {
             const saved = localStorage.getItem('user');
             if (saved) {
