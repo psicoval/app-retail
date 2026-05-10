@@ -18,21 +18,17 @@
 
         .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
 
-        /* Login & Register */
         .auth-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
-
         .auth-card {
             background: white; border-radius: 24px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             overflow: hidden; max-width: 480px; width: 100%;
             animation: slideUp 0.5s ease-out;
         }
-
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         .auth-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 40px 30px; text-align: center; color: white;
@@ -47,14 +43,12 @@
             display: block; font-size: 14px; font-weight: 600;
             color: #4a5568; margin-bottom: 8px;
         }
-
         .input-icon { position: relative; }
         .input-icon > i {
             position: absolute; left: 16px; top: 50%;
             transform: translateY(-50%); color: #a0aec0;
             font-size: 16px; pointer-events: none;
         }
-
         .form-control {
             width: 100%; padding: 14px 16px;
             border: 2px solid #e2e8f0; border-radius: 12px;
@@ -82,7 +76,6 @@
 
         .hidden { display: none !important; }
 
-        /* Dashboard */
         .dashboard { animation: fadeIn 0.5s ease-out; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -92,7 +85,6 @@
             display: flex; justify-content: space-between; align-items: center;
             flex-wrap: wrap; gap: 20px;
         }
-
         .header-left h1 {
             font-size: 32px; font-weight: 800;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -100,16 +92,10 @@
             margin-bottom: 4px;
         }
         .header-left p { color: #718096; font-size: 15px; }
-
         .header-right { display: flex; gap: 12px; align-items: center; }
-
-        .user-info {
-            text-align: right; padding-right: 16px;
-            border-right: 2px solid #e2e8f0;
-        }
+        .user-info { text-align: right; padding-right: 16px; border-right: 2px solid #e2e8f0; }
         .user-info h3 { font-size: 16px; font-weight: 600; color: #2d3748; }
         .user-info p { font-size: 13px; color: #718096; }
-
         .btn-logout {
             width: auto; padding: 12px 24px; background: #fc8181;
             border-radius: 10px; font-weight: 600; cursor: pointer;
@@ -117,7 +103,6 @@
         }
         .btn-logout:hover { background: #f56565; transform: translateY(-2px); }
 
-        /* Tabs */
         .tab-nav {
             display: flex; gap: 8px; margin-bottom: 24px;
             background: white; padding: 8px; border-radius: 16px;
@@ -136,34 +121,33 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
         }
-
         .view { display: none; }
         .view.active { display: block; animation: fadeIn 0.3s ease-out; }
 
-        /* Stats */
         .stats-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px; margin-bottom: 24px;
+            gap: 16px; margin-bottom: 24px;
         }
         .stat-card {
-            background: white; border-radius: 16px; padding: 24px;
+            background: white; border-radius: 16px; padding: 22px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            display: flex; align-items: center; gap: 20px; transition: transform 0.3s;
+            display: flex; align-items: center; gap: 18px; transition: transform 0.3s;
         }
         .stat-card:hover { transform: translateY(-4px); }
         .stat-icon {
-            width: 56px; height: 56px; border-radius: 12px;
+            width: 52px; height: 52px; border-radius: 12px;
             display: flex; align-items: center; justify-content: center;
-            font-size: 24px; flex-shrink: 0;
+            font-size: 22px; flex-shrink: 0;
         }
         .stat-icon.pendientes { background: #fef3c7; color: #d97706; }
         .stat-icon.camino { background: #dbeafe; color: #2563eb; }
         .stat-icon.entregados { background: #d1fae5; color: #059669; }
         .stat-icon.clientes { background: #e9d8fd; color: #6b46c1; }
-        .stat-content h3 { font-size: 28px; font-weight: 800; color: #2d3748; margin-bottom: 4px; line-height: 1; }
+        .stat-icon.ventas { background: #c6f6d5; color: #047857; }
+        .stat-icon.cobrar { background: #fed7d7; color: #c53030; }
+        .stat-content h3 { font-size: 26px; font-weight: 800; color: #2d3748; margin-bottom: 4px; line-height: 1; }
         .stat-content p { font-size: 13px; color: #718096; font-weight: 500; }
 
-        /* Cards */
         .card {
             background: white; border-radius: 20px; padding: 30px;
             margin-bottom: 24px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -192,7 +176,6 @@
 
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
-        /* Form section */
         .form-section {
             background: #f8fafc; border: 2px dashed #cbd5e0;
             border-radius: 16px; padding: 24px; margin-bottom: 24px;
@@ -210,7 +193,6 @@
 
         .form-actions { display: flex; gap: 12px; margin-top: 8px; }
 
-        /* Autocomplete */
         .autocomplete-wrapper { position: relative; }
         .autocomplete-dropdown {
             position: absolute; top: calc(100% + 4px); left: 0; right: 0;
@@ -233,7 +215,6 @@
         .dropdown-item.create-new:hover { background: #e9d8fd; }
         .dropdown-item.create-new i { margin-right: 8px; }
 
-        /* Selected card */
         .selected-card {
             display: flex; justify-content: space-between; align-items: center;
             padding: 16px 18px; background: #ebf8ff;
@@ -247,7 +228,6 @@
         }
         .selected-info span { font-size: 13px; color: #4a5568; display: block; }
 
-        /* New block */
         .new-block {
             background: #fffaf0; border: 2px solid #ed8936;
             border-radius: 12px; padding: 18px;
@@ -276,7 +256,6 @@
         }
         .btn-icon-x:hover { background: #fed7d7; color: #c53030; }
 
-        /* Producto rows */
         .producto-row {
             display: grid; grid-template-columns: 1fr 90px 110px 90px 40px;
             gap: 8px; align-items: start; padding: 12px;
@@ -309,12 +288,22 @@
             font-weight: 800; font-size: 28px; margin-left: 12px;
         }
 
-        /* Filter pills */
+        /* === Filtros === */
+        .filtros-pedidos {
+            background: #f8fafc; border-radius: 16px; padding: 18px;
+            margin-bottom: 20px; border: 1px solid #e2e8f0;
+        }
+        .filtros-titulo {
+            font-size: 13px; font-weight: 700; color: #4a5568;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
+        }
+        .filtros-titulo i { color: #667eea; }
         .filter-bar {
-            display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;
+            display: flex; gap: 8px; flex-wrap: wrap;
         }
         .filter-pill {
-            padding: 8px 16px; border: 2px solid #e2e8f0; background: white;
+            padding: 8px 14px; border: 2px solid #e2e8f0; background: white;
             border-radius: 20px; cursor: pointer; font-weight: 600;
             font-size: 13px; color: #4a5568; transition: all 0.2s;
             font-family: inherit; display: flex; align-items: center; gap: 6px;
@@ -333,7 +322,37 @@
             background: #e2e8f0; color: #4a5568;
         }
 
-        /* Table */
+        .fecha-filter {
+            display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+        }
+        .fecha-filter input[type=date] {
+            padding: 8px 12px; border: 1px solid #cbd5e0;
+            border-radius: 8px; font-family: inherit; font-size: 13px;
+        }
+        .fecha-filter label {
+            font-size: 13px; color: #4a5568; font-weight: 600;
+        }
+
+        .search-wrapper {
+            position: relative; flex: 1; min-width: 200px;
+        }
+        .search-wrapper input {
+            width: 100%; padding: 9px 14px 9px 36px;
+            border: 1px solid #cbd5e0; border-radius: 8px;
+            font-size: 13px; font-family: inherit;
+        }
+        .search-wrapper i {
+            position: absolute; left: 12px; top: 50%;
+            transform: translateY(-50%); color: #a0aec0; font-size: 13px;
+        }
+
+        .filtros-row {
+            display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+            margin-top: 12px; padding-top: 12px;
+            border-top: 1px dashed #cbd5e0;
+        }
+
+        /* === Tabla === */
         .table-container { overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; }
         table { width: 100%; border-collapse: collapse; }
         thead {
@@ -377,7 +396,6 @@
         .chofer-inline.no-chofer { color: #a0aec0; font-style: italic; }
         .chofer-inline i { font-size: 11px; }
 
-        /* Action buttons en celda */
         .acciones-cell { white-space: nowrap; position: relative; }
         .btn-action {
             background: white; border: 1px solid #e2e8f0;
@@ -388,21 +406,13 @@
         .btn-action:hover {
             border-color: #667eea; color: #667eea; transform: scale(1.05);
         }
-        .btn-action.btn-success {
-            background: #d1fae5; border-color: #6ee7b7; color: #065f46;
-        }
+        .btn-action.btn-success { background: #d1fae5; border-color: #6ee7b7; color: #065f46; }
         .btn-action.btn-success:hover { background: #a7f3d0; }
-        .btn-action.btn-warn {
-            background: #fef3c7; border-color: #fcd34d; color: #92400e;
-        }
+        .btn-action.btn-warn { background: #fef3c7; border-color: #fcd34d; color: #92400e; }
         .btn-action.btn-warn:hover { background: #fde68a; }
-        .btn-action.btn-paid {
-            background: #d1fae5; border-color: #6ee7b7; color: #065f46;
-        }
+        .btn-action.btn-paid { background: #d1fae5; border-color: #6ee7b7; color: #065f46; }
         .btn-action.btn-paid:hover { background: #a7f3d0; }
-        .btn-action.btn-unpaid {
-            background: #fee2e2; border-color: #fca5a5; color: #991b1b;
-        }
+        .btn-action.btn-unpaid { background: #fee2e2; border-color: #fca5a5; color: #991b1b; }
         .btn-action.btn-unpaid:hover { background: #fecaca; }
 
         .acciones-menu {
@@ -421,12 +431,10 @@
         .acciones-menu a.danger { color: #c53030; }
         .acciones-menu a.danger:hover { background: #fed7d7; }
 
-        /* Empty state */
         .empty-state { text-align: center; padding: 60px 20px; color: #a0aec0; }
         .empty-state i { font-size: 64px; margin-bottom: 16px; display: block; opacity: 0.5; }
         .empty-state p { font-size: 15px; }
 
-        /* Alerts */
         .alert {
             padding: 14px 18px; border-radius: 12px; margin-bottom: 20px;
             display: flex; align-items: center; gap: 12px;
@@ -439,7 +447,6 @@
         .alert-success { background: #d1fae5; color: #065f46; border-left: 4px solid #059669; }
         .alert-error { background: #fee2e2; color: #991b1b; border-left: 4px solid #dc2626; }
 
-        /* Modal */
         .modal-overlay {
             position: fixed; top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(26, 32, 44, 0.7);
@@ -467,9 +474,155 @@
             margin-bottom: 16px;
         }
 
-        /* Mobile */
+        /* === Reportes === */
+        .reporte-controls {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+            margin-bottom: 20px;
+        }
+        .reporte-controls > div { display: flex; flex-direction: column; }
+        .reporte-controls label {
+            font-size: 12px; font-weight: 700; color: #4a5568;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .reporte-controls select, .reporte-controls input {
+            padding: 10px 14px; border: 1px solid #cbd5e0;
+            border-radius: 8px; font-size: 14px; font-family: inherit;
+            background: white;
+        }
+
+        .reporte-preview {
+            background: white; padding: 30px; margin-top: 20px;
+            border: 1px solid #e2e8f0; border-radius: 12px;
+            min-height: 300px;
+        }
+        .reporte-titulo {
+            text-align: center; margin-bottom: 24px;
+            padding-bottom: 16px; border-bottom: 2px solid #e2e8f0;
+        }
+        .reporte-titulo h1 {
+            font-size: 22px; color: #2d3748; margin-bottom: 6px;
+        }
+        .reporte-titulo .empresa-nombre {
+            font-size: 16px; font-weight: 700; color: #667eea;
+            margin-bottom: 4px;
+        }
+        .reporte-titulo .empresa-info {
+            font-size: 12px; color: #718096;
+        }
+        .reporte-titulo .rango {
+            font-size: 13px; color: #4a5568; margin-top: 8px;
+        }
+
+        .reporte-resumen {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px; margin-bottom: 24px;
+        }
+        .reporte-resumen-card {
+            background: #f7fafc; padding: 14px;
+            border-radius: 8px; text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .reporte-resumen-card .label {
+            font-size: 11px; color: #718096; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .reporte-resumen-card .value {
+            font-size: 20px; font-weight: 800; color: #2d3748;
+        }
+        .reporte-resumen-card.success .value { color: #059669; }
+        .reporte-resumen-card.danger .value { color: #c53030; }
+
+        .reporte-seccion {
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .reporte-seccion:last-child { border-bottom: none; }
+        .reporte-seccion h3 {
+            font-size: 15px; font-weight: 700;
+            color: #553c9a; margin-bottom: 10px;
+            background: #faf5ff; padding: 10px 14px;
+            border-left: 4px solid #6b46c1; border-radius: 4px;
+        }
+        .reporte-seccion-info {
+            font-size: 12px; color: #718096; margin-bottom: 10px;
+            padding-left: 14px;
+        }
+        .reporte-seccion-subtotal {
+            text-align: right; padding: 10px 14px;
+            margin-top: 8px; background: #f7fafc;
+            border-radius: 6px; font-weight: 700;
+            font-size: 13px;
+        }
+
+        .reporte-table {
+            width: 100%; border-collapse: collapse;
+            font-size: 12px; margin-bottom: 8px;
+        }
+        .reporte-table th {
+            background: #4a5568; color: white;
+            padding: 8px 10px; text-align: left;
+            font-size: 11px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.3px;
+        }
+        .reporte-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 12px;
+        }
+        .reporte-table tr:nth-child(even) td { background: #f7fafc; }
+
+        .reporte-total-final {
+            text-align: right; padding: 16px 20px;
+            margin-top: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; border-radius: 8px;
+            font-size: 16px;
+        }
+        .reporte-total-final strong { font-size: 22px; margin-left: 12px; }
+
+        .reporte-pie {
+            margin-top: 24px; padding-top: 12px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center; font-size: 11px; color: #a0aec0;
+        }
+
+        /* PRINT-only styles */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .container { padding: 0 !important; max-width: none !important; }
+            .dashboard-header, .tab-nav, .filtros-pedidos,
+            .reporte-controls, #generarBtn, .form-actions,
+            .acciones-cell, #alertContainerReportes,
+            #view-inicio, #view-pedidos {
+                display: none !important;
+            }
+            .card { box-shadow: none !important; border: none !important; padding: 0 !important; }
+            .reporte-preview {
+                border: none !important; padding: 0 !important;
+                margin: 0 !important; min-height: 0 !important;
+            }
+            .reporte-table { font-size: 10px; }
+            .reporte-table th { background: #4a5568 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .reporte-seccion h3 { background: #faf5ff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .reporte-total-final {
+                background: #667eea !important;
+                -webkit-print-color-adjust: exact; print-color-adjust: exact;
+            }
+            .badge, .pago-badge {
+                -webkit-print-color-adjust: exact; print-color-adjust: exact;
+            }
+            .reporte-seccion { page-break-inside: avoid; }
+        }
+
         @media (max-width: 768px) {
             .form-row { grid-template-columns: 1fr; }
+            .reporte-controls { grid-template-columns: 1fr; }
             .dashboard-header { flex-direction: column; align-items: flex-start; }
             .header-right { width: 100%; justify-content: space-between; }
             .user-info { border-right: none; padding-right: 0; text-align: left; }
@@ -605,7 +758,6 @@
                 </div>
             </div>
 
-            <!-- Tabs -->
             <div class="tab-nav">
                 <button class="tab-button active" data-tab="inicio" onclick="switchTab('inicio')">
                     <i class="fas fa-home"></i><span class="tab-label">Inicio</span>
@@ -613,18 +765,14 @@
                 <button class="tab-button" data-tab="pedidos" onclick="switchTab('pedidos')">
                     <i class="fas fa-clipboard-list"></i><span class="tab-label">Pedidos</span>
                 </button>
+                <button class="tab-button" data-tab="reportes" onclick="switchTab('reportes')">
+                    <i class="fas fa-file-alt"></i><span class="tab-label">Reportes</span>
+                </button>
             </div>
 
             <!-- Inicio -->
             <div id="view-inicio" class="view active">
                 <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon clientes"><i class="fas fa-users"></i></div>
-                        <div class="stat-content">
-                            <h3 id="statClientes">0</h3>
-                            <p>Clientes registrados</p>
-                        </div>
-                    </div>
                     <div class="stat-card">
                         <div class="stat-icon pendientes"><i class="fas fa-clock"></i></div>
                         <div class="stat-content">
@@ -646,6 +794,27 @@
                             <p>Entregados hoy</p>
                         </div>
                     </div>
+                    <div class="stat-card">
+                        <div class="stat-icon ventas"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="stat-content">
+                            <h3 id="statVentasHoy">$0.00</h3>
+                            <p>Ventas hoy</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon cobrar"><i class="fas fa-hand-holding-dollar"></i></div>
+                        <div class="stat-content">
+                            <h3 id="statPorCobrar">$0.00</h3>
+                            <p>Por cobrar (total)</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon clientes"><i class="fas fa-users"></i></div>
+                        <div class="stat-content">
+                            <h3 id="statClientes">0</h3>
+                            <p>Clientes registrados</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="card">
@@ -654,26 +823,27 @@
                         <h2>Cómo usar App Retail</h2>
                     </div>
                     <p style="color: #4a5568; line-height: 1.7;">
-                        <strong>Crear pedido:</strong> ve a Pedidos → "+ Nuevo Pedido". Cliente y productos se autocompletan
-                        si ya existen, o se crean en el momento si son nuevos.
-                    </p>
-                    <p style="color: #4a5568; line-height: 1.7; margin-top: 8px;">
-                        <strong>Asignar chofer:</strong> en cada pedido pendiente verás un botón
-                        <i class="fas fa-user-tag" style="color:#667eea"></i> para asignar el chofer (también con
-                        creación al vuelo).
+                        <strong>Crear pedido:</strong> Pedidos → "+ Nuevo Pedido". Cliente y productos se autocompletan
+                        si ya existen, o se crean al vuelo.
                     </p>
                     <p style="color: #4a5568; line-height: 1.7; margin-top: 8px;">
                         <strong>Avanzar el pedido:</strong>
-                        <span class="badge badge-pendiente">pendiente</span> →
+                        <span class="badge badge-pendiente">pendiente</span> → asignar chofer →
                         <span class="badge badge-asignado">asignado</span> →
                         <span class="badge badge-en_ruta">en ruta</span> →
                         <span class="badge badge-entregado">entregado</span>.
-                        Cada estado tiene su propio botón.
                     </p>
                     <p style="color: #4a5568; line-height: 1.7; margin-top: 8px;">
-                        <strong>Indicador de pago:</strong> el botón
-                        <i class="fas fa-dollar-sign" style="color:#059669"></i> alterna entre pagado y no pagado.
-                        Es independiente del estado de entrega — puedes haber entregado pero aún no cobrado.
+                        <strong>Cobranza separada:</strong> el botón <i class="fas fa-dollar-sign" style="color:#059669"></i>
+                        marca pagado/no pagado independientemente del estado.
+                    </p>
+                    <p style="color: #4a5568; line-height: 1.7; margin-top: 8px;">
+                        <strong>Filtros y búsqueda:</strong> arriba de la lista de Pedidos puedes filtrar por
+                        estado, pago, rango de fechas, o buscar por nombre de cliente.
+                    </p>
+                    <p style="color: #4a5568; line-height: 1.7; margin-top: 8px;">
+                        <strong>Reportes:</strong> en la pestaña Reportes generas e imprimes resúmenes
+                        (general, por chofer, o cobranzas pendientes).
                     </p>
                 </div>
             </div>
@@ -769,25 +939,62 @@
                     </div>
 
                     <!-- FILTROS -->
-                    <div class="filter-bar" id="filterBar">
-                        <button class="filter-pill active" data-filter="pendiente" onclick="setFiltroEstado('pendiente')">
-                            <i class="fas fa-clock"></i> Pendientes <span class="count" id="count-pendiente">0</span>
-                        </button>
-                        <button class="filter-pill" data-filter="asignado" onclick="setFiltroEstado('asignado')">
-                            <i class="fas fa-user-tag"></i> Asignados <span class="count" id="count-asignado">0</span>
-                        </button>
-                        <button class="filter-pill" data-filter="en_ruta" onclick="setFiltroEstado('en_ruta')">
-                            <i class="fas fa-truck"></i> En ruta <span class="count" id="count-en_ruta">0</span>
-                        </button>
-                        <button class="filter-pill" data-filter="entregado" onclick="setFiltroEstado('entregado')">
-                            <i class="fas fa-check-circle"></i> Entregados <span class="count" id="count-entregado">0</span>
-                        </button>
-                        <button class="filter-pill" data-filter="cancelado" onclick="setFiltroEstado('cancelado')">
-                            <i class="fas fa-ban"></i> Cancelados <span class="count" id="count-cancelado">0</span>
-                        </button>
-                        <button class="filter-pill" data-filter="todos" onclick="setFiltroEstado('todos')">
-                            <i class="fas fa-list"></i> Todos <span class="count" id="count-todos">0</span>
-                        </button>
+                    <div class="filtros-pedidos">
+                        <div class="filtros-titulo"><i class="fas fa-filter"></i> Filtros</div>
+
+                        <div class="filter-bar" id="filterBar">
+                            <button class="filter-pill active" data-filter="pendiente" onclick="setFiltroEstado('pendiente')">
+                                <i class="fas fa-clock"></i> Pendientes <span class="count" id="count-pendiente">0</span>
+                            </button>
+                            <button class="filter-pill" data-filter="asignado" onclick="setFiltroEstado('asignado')">
+                                <i class="fas fa-user-tag"></i> Asignados <span class="count" id="count-asignado">0</span>
+                            </button>
+                            <button class="filter-pill" data-filter="en_ruta" onclick="setFiltroEstado('en_ruta')">
+                                <i class="fas fa-truck"></i> En ruta <span class="count" id="count-en_ruta">0</span>
+                            </button>
+                            <button class="filter-pill" data-filter="entregado" onclick="setFiltroEstado('entregado')">
+                                <i class="fas fa-check-circle"></i> Entregados <span class="count" id="count-entregado">0</span>
+                            </button>
+                            <button class="filter-pill" data-filter="cancelado" onclick="setFiltroEstado('cancelado')">
+                                <i class="fas fa-ban"></i> Cancelados <span class="count" id="count-cancelado">0</span>
+                            </button>
+                            <button class="filter-pill" data-filter="todos" onclick="setFiltroEstado('todos')">
+                                <i class="fas fa-list"></i> Todos <span class="count" id="count-todos">0</span>
+                            </button>
+                        </div>
+
+                        <div class="filtros-row">
+                            <div class="search-wrapper">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="searchInput" placeholder="Buscar por cliente o teléfono..."
+                                       oninput="setSearchTerm(this.value)">
+                            </div>
+                            <div class="fecha-filter">
+                                <button class="filter-pill" onclick="setFiltroPago('todos')" data-pago="todos" id="pago-todos">
+                                    Pago: todos
+                                </button>
+                                <button class="filter-pill" onclick="setFiltroPago('pagado')" data-pago="pagado" id="pago-pagado">
+                                    <i class="fas fa-check"></i> Pagados
+                                </button>
+                                <button class="filter-pill" onclick="setFiltroPago('no_pagado')" data-pago="no_pagado" id="pago-no_pagado">
+                                    <i class="fas fa-times"></i> No pagados
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="filtros-row">
+                            <div class="fecha-filter">
+                                <label>Desde:</label>
+                                <input type="date" id="fechaDesde" onchange="aplicarFiltroFecha()">
+                                <label>Hasta:</label>
+                                <input type="date" id="fechaHasta" onchange="aplicarFiltroFecha()">
+                                <button class="btn-secondary" style="padding: 6px 12px; font-size: 12px;" onclick="presetFecha('hoy')">Hoy</button>
+                                <button class="btn-secondary" style="padding: 6px 12px; font-size: 12px;" onclick="presetFecha('ayer')">Ayer</button>
+                                <button class="btn-secondary" style="padding: 6px 12px; font-size: 12px;" onclick="presetFecha('semana')">Esta semana</button>
+                                <button class="btn-secondary" style="padding: 6px 12px; font-size: 12px;" onclick="presetFecha('mes')">Este mes</button>
+                                <button class="btn-secondary" style="padding: 6px 12px; font-size: 12px;" onclick="presetFecha('limpiar')">Limpiar</button>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- TABLA -->
@@ -817,6 +1024,67 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Reportes -->
+            <div id="view-reportes" class="view">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-file-alt"></i>
+                        <h2>Generar reporte</h2>
+                    </div>
+
+                    <div id="alertContainerReportes"></div>
+
+                    <div class="reporte-controls">
+                        <div>
+                            <label>Tipo de reporte</label>
+                            <select id="reporteTipo">
+                                <option value="general">Reporte general de pedidos</option>
+                                <option value="chofer">Reporte por chofer</option>
+                                <option value="cobranzas">Cuentas por cobrar</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Filtro adicional</label>
+                            <select id="reporteFiltroExtra">
+                                <option value="todos">Todos los estados</option>
+                                <option value="entregado">Solo entregados</option>
+                                <option value="pendiente_entrega">Pendientes de entrega</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Desde</label>
+                            <input type="date" id="reporteFechaDesde">
+                        </div>
+                        <div>
+                            <label>Hasta</label>
+                            <input type="date" id="reporteFechaHasta">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button id="generarBtn" class="btn btn-primary" onclick="generarReporte()">
+                            <i class="fas fa-file-export"></i> Generar reporte
+                        </button>
+                        <button class="btn-secondary" onclick="presetReporteFecha('hoy')">Hoy</button>
+                        <button class="btn-secondary" onclick="presetReporteFecha('semana')">Esta semana</button>
+                        <button class="btn-secondary" onclick="presetReporteFecha('mes')">Este mes</button>
+                    </div>
+
+                    <div id="reportePreview" class="reporte-preview" style="display:none;">
+                        <!-- Contenido generado dinámicamente -->
+                    </div>
+
+                    <div id="reporteImprimirActions" class="form-actions" style="display:none;">
+                        <button class="btn btn-primary" onclick="window.print()">
+                            <i class="fas fa-print"></i> Imprimir / Guardar PDF
+                        </button>
+                        <button class="btn-secondary" onclick="cerrarReporte()">
+                            <i class="fas fa-times"></i> Cerrar
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -830,7 +1098,6 @@
             <div class="modal-meta">
                 Pedido para: <strong id="choferModalCliente"></strong>
             </div>
-
             <div class="form-group">
                 <label>Chofer</label>
                 <div id="choferSearchWrapper" class="autocomplete-wrapper">
@@ -850,7 +1117,7 @@
                             <span id="choferSelectedDetalle"></span>
                         </div>
                     </div>
-                    <button class="btn-icon-x" onclick="resetChofer()" title="Cambiar"><i class="fas fa-times"></i></button>
+                    <button class="btn-icon-x" onclick="resetChofer()"><i class="fas fa-times"></i></button>
                 </div>
                 <div id="choferNew" class="new-block hidden">
                     <div class="new-block-header">
@@ -861,7 +1128,6 @@
                     <input type="text" id="newChoferVehiculo" placeholder="Vehículo (ej: Hilux blanca, ABC-123)">
                 </div>
             </div>
-
             <div class="form-actions">
                 <button class="btn btn-primary" onclick="confirmarAsignacionChofer()">
                     <i class="fas fa-check"></i> Asignar
@@ -884,9 +1150,13 @@
         let formClienteState = { mode: 'search', cliente_id: null, nombre: '' };
         let productosPedido = [];
 
+        // Filtros
         let filtroEstado = 'pendiente';
+        let filtroPago = 'todos';
+        let filtroSearch = '';
+        let filtroFechaDesde = null; // YYYY-MM-DD
+        let filtroFechaHasta = null;
 
-        // Modal chofer state
         let formChoferState = { mode: 'search', chofer_id: null, nombre: '' };
         let pedidoEditandoChofer = null;
 
@@ -911,8 +1181,21 @@
         function formatCurrency(n) { return '$' + (parseFloat(n) || 0).toFixed(2); }
 
         function escapeAttr(str) {
-            // Para inserción en atributos HTML (especialmente onclick con strings JS)
             return String(str || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        }
+
+        function fechaISO(d) {
+            // Returns YYYY-MM-DD para una Date local
+            const tz = d.getTimezoneOffset() * 60000;
+            return new Date(d - tz).toISOString().split('T')[0];
+        }
+
+        function formatFecha(s, includeTime = false) {
+            if (!s) return '—';
+            try {
+                return new Date(s).toLocaleString('es-EC',
+                    includeTime ? { dateStyle: 'short', timeStyle: 'short' } : { dateStyle: 'short' });
+            } catch { return s; }
         }
 
         // ========== AUTH ==========
@@ -920,7 +1203,6 @@
             document.getElementById('loginSection').classList.add('hidden');
             document.getElementById('registerSection').classList.remove('hidden');
         }
-
         function showLogin() {
             document.getElementById('registerSection').classList.add('hidden');
             document.getElementById('loginSection').classList.remove('hidden');
@@ -941,8 +1223,7 @@
             }
             try {
                 const res = await fetch(`${API_URL}/registro`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
                 const result = await res.json();
@@ -965,8 +1246,7 @@
             };
             try {
                 const res = await fetch(`${API_URL}/registro`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
                 const result = await res.json();
@@ -988,10 +1268,7 @@
             document.getElementById('dashboardSection').classList.remove('hidden');
             document.getElementById('userName').textContent = currentUser.nombre_completo;
             document.getElementById('userEmpresa').textContent = currentUser.empresa_nombre;
-            await Promise.all([
-                cargarClientes(), cargarProductos(),
-                cargarChoferes(), cargarPedidos()
-            ]);
+            await Promise.all([cargarClientes(), cargarProductos(), cargarChoferes(), cargarPedidos()]);
             actualizarStats();
             switchTab('inicio');
         }
@@ -1011,6 +1288,7 @@
             });
             if (tab === 'pedidos') renderPedidos();
             if (tab === 'inicio') actualizarStats();
+            if (tab === 'reportes') prepararReportes();
         }
 
         // ========== STATS ==========
@@ -1021,54 +1299,52 @@
             document.getElementById('statCamino').textContent =
                 pedidosCache.filter(p => p.estado === 'en_ruta').length;
             const today = new Date().toISOString().split('T')[0];
-            document.getElementById('statEntregados').textContent =
-                pedidosCache.filter(p =>
-                    p.estado === 'entregado' && p.entregado_at && p.entregado_at.startsWith(today)
-                ).length;
+            const entregadosHoy = pedidosCache.filter(p =>
+                p.estado === 'entregado' && p.entregado_at && p.entregado_at.startsWith(today)
+            );
+            document.getElementById('statEntregados').textContent = entregadosHoy.length;
+            const ventasHoy = entregadosHoy.reduce((sum, p) => sum + (parseFloat(p.total) || 0), 0);
+            document.getElementById('statVentasHoy').textContent = formatCurrency(ventasHoy);
+            const porCobrar = pedidosCache.filter(p => !p.pagado && p.estado !== 'cancelado')
+                .reduce((sum, p) => sum + (parseFloat(p.total) || 0), 0);
+            document.getElementById('statPorCobrar').textContent = formatCurrency(porCobrar);
         }
 
         // ========== CARGAR DATOS ==========
         async function cargarClientes() {
             try {
                 const res = await fetch(`${API_URL}/clientes`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ action: 'listar', empresa_id: currentUser.empresa_id })
                 });
                 const data = await res.json();
                 if (res.ok) clientesCache = data.clientes || [];
             } catch (e) { /* ignorar */ }
         }
-
         async function cargarProductos() {
             try {
                 const res = await fetch(`${API_URL}/productos`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ action: 'listar', empresa_id: currentUser.empresa_id })
                 });
                 const data = await res.json();
                 if (res.ok) productosCache = data.productos || [];
             } catch (e) { /* ignorar */ }
         }
-
         async function cargarChoferes() {
             try {
                 const res = await fetch(`${API_URL}/choferes`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ action: 'listar', empresa_id: currentUser.empresa_id })
                 });
                 const data = await res.json();
                 if (res.ok) choferesCache = data.choferes || [];
             } catch (e) { /* ignorar */ }
         }
-
         async function cargarPedidos() {
             try {
                 const res = await fetch(`${API_URL}/pedidos`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ action: 'listar', empresa_id: currentUser.empresa_id })
                 });
                 const data = await res.json();
@@ -1082,20 +1358,81 @@
         // ========== FILTROS ==========
         function setFiltroEstado(estado) {
             filtroEstado = estado;
-            document.querySelectorAll('.filter-pill').forEach(p => {
+            document.querySelectorAll('.filter-pill[data-filter]').forEach(p => {
                 p.classList.toggle('active', p.dataset.filter === estado);
             });
             renderPedidos();
         }
 
+        function setFiltroPago(p) {
+            filtroPago = p;
+            document.querySelectorAll('.filter-pill[data-pago]').forEach(el => {
+                el.classList.toggle('active', el.dataset.pago === p);
+            });
+            renderPedidos();
+        }
+
+        function setSearchTerm(t) {
+            filtroSearch = (t || '').trim().toLowerCase();
+            renderPedidos();
+        }
+
+        function aplicarFiltroFecha() {
+            filtroFechaDesde = document.getElementById('fechaDesde').value || null;
+            filtroFechaHasta = document.getElementById('fechaHasta').value || null;
+            renderPedidos();
+        }
+
+        function presetFecha(preset) {
+            const hoy = new Date();
+            let desde, hasta;
+            if (preset === 'hoy') {
+                desde = hasta = fechaISO(hoy);
+            } else if (preset === 'ayer') {
+                const ayer = new Date(hoy);
+                ayer.setDate(ayer.getDate() - 1);
+                desde = hasta = fechaISO(ayer);
+            } else if (preset === 'semana') {
+                const inicio = new Date(hoy);
+                const dia = inicio.getDay() || 7; // domingo=0 → 7
+                inicio.setDate(inicio.getDate() - (dia - 1));
+                desde = fechaISO(inicio);
+                hasta = fechaISO(hoy);
+            } else if (preset === 'mes') {
+                desde = fechaISO(new Date(hoy.getFullYear(), hoy.getMonth(), 1));
+                hasta = fechaISO(hoy);
+            } else if (preset === 'limpiar') {
+                desde = hasta = '';
+            }
+            document.getElementById('fechaDesde').value = desde;
+            document.getElementById('fechaHasta').value = hasta;
+            aplicarFiltroFecha();
+        }
+
         function getPedidosFiltrados() {
-            if (filtroEstado === 'todos') return pedidosCache;
-            return pedidosCache.filter(p => p.estado === filtroEstado);
+            return pedidosCache.filter(p => {
+                if (filtroEstado !== 'todos' && p.estado !== filtroEstado) return false;
+                if (filtroPago === 'pagado' && !p.pagado) return false;
+                if (filtroPago === 'no_pagado' && p.pagado) return false;
+                if (filtroSearch) {
+                    const haystack = [p.cliente_nombre, p.cliente_telefono, p.chofer_nombre]
+                        .filter(Boolean).join(' ').toLowerCase();
+                    if (!haystack.includes(filtroSearch)) return false;
+                }
+                if (filtroFechaDesde) {
+                    const fechaPedido = (p.created_at || '').split('T')[0];
+                    if (fechaPedido < filtroFechaDesde) return false;
+                }
+                if (filtroFechaHasta) {
+                    const fechaPedido = (p.created_at || '').split('T')[0];
+                    if (fechaPedido > filtroFechaHasta) return false;
+                }
+                return true;
+            });
         }
 
         // ========== RENDER PEDIDOS ==========
         function renderPedidos() {
-            // Actualizar contadores
             const counts = { pendiente: 0, asignado: 0, en_ruta: 0, entregado: 0, cancelado: 0 };
             pedidosCache.forEach(p => { if (counts[p.estado] !== undefined) counts[p.estado]++; });
             document.getElementById('count-pendiente').textContent = counts.pendiente;
@@ -1105,6 +1442,12 @@
             document.getElementById('count-cancelado').textContent = counts.cancelado;
             document.getElementById('count-todos').textContent = pedidosCache.length;
 
+            // Asegurar que filtroPago tenga estado visual
+            if (!document.querySelector('.filter-pill[data-pago].active')) {
+                const el = document.getElementById('pago-todos');
+                if (el) el.classList.add('active');
+            }
+
             const tbody = document.getElementById('pedidosTable');
             const filtrados = getPedidosFiltrados();
 
@@ -1112,7 +1455,7 @@
                 tbody.innerHTML = `<tr><td colspan="6">
                     <div class="empty-state">
                         <i class="fas fa-clipboard"></i>
-                        <p>No hay pedidos en este filtro.</p>
+                        <p>No hay pedidos que coincidan con los filtros.</p>
                     </div>
                 </td></tr>`;
                 return;
@@ -1123,7 +1466,7 @@
                     `${i.cantidad}× ${escapeHtml(i.producto_nombre)}`
                 ).join('<br>');
                 const fecha = p.fecha_entrega
-                    ? new Date(p.fecha_entrega).toLocaleString('es-EC', { dateStyle: 'short', timeStyle: 'short' })
+                    ? formatFecha(p.fecha_entrega, true)
                     : '<span style="color:#a0aec0">—</span>';
                 const choferHtml = p.chofer_id
                     ? `<div class="chofer-inline"><i class="fas fa-id-badge"></i> ${escapeHtml(p.chofer_nombre)}</div>`
@@ -1158,80 +1501,62 @@
             let html = '';
             const clienteAttr = escapeAttr(p.cliente_nombre);
 
-            // Botón principal según estado
             if (p.estado === 'pendiente') {
                 html += `<button class="btn-action" onclick="abrirAsignarChofer('${p.id}', '${clienteAttr}')" title="Asignar chofer">
-                    <i class="fas fa-user-tag"></i>
-                </button>`;
+                    <i class="fas fa-user-tag"></i></button>`;
             } else if (p.estado === 'asignado') {
                 html += `<button class="btn-action btn-warn" onclick="cambiarEstadoPedido('${p.id}', 'en_ruta')" title="Marcar en ruta">
-                    <i class="fas fa-truck"></i>
-                </button>`;
+                    <i class="fas fa-truck"></i></button>`;
             } else if (p.estado === 'en_ruta') {
                 html += `<button class="btn-action btn-success" onclick="cambiarEstadoPedido('${p.id}', 'entregado')" title="Marcar entregado">
-                    <i class="fas fa-check"></i>
-                </button>`;
+                    <i class="fas fa-check"></i></button>`;
             }
 
-            // Toggle pago (siempre)
             const pagoClass = p.pagado ? 'btn-paid' : 'btn-unpaid';
             const pagoTitle = p.pagado ? 'Marcar como no pagado' : 'Marcar como pagado';
             html += `<button class="btn-action ${pagoClass}" onclick="togglePagadoPedido('${p.id}')" title="${pagoTitle}">
-                <i class="fas fa-dollar-sign"></i>
-            </button>`;
+                <i class="fas fa-dollar-sign"></i></button>`;
 
-            // Menú de más acciones (sólo si no está entregado)
             if (p.estado !== 'entregado') {
                 let menuItems = '';
                 if (p.estado === 'asignado' || p.estado === 'en_ruta') {
                     menuItems += `<a onclick="abrirAsignarChofer('${p.id}', '${clienteAttr}'); event.stopPropagation();">
-                        <i class="fas fa-id-badge"></i> Cambiar chofer
-                    </a>`;
+                        <i class="fas fa-id-badge"></i> Cambiar chofer</a>`;
                 }
                 menuItems += `<a class="danger" onclick="confirmarCancelarPedido('${p.id}', '${clienteAttr}'); event.stopPropagation();">
-                    <i class="fas fa-ban"></i> Cancelar pedido
-                </a>`;
-
+                    <i class="fas fa-ban"></i> Cancelar pedido</a>`;
                 html += `
                     <span style="position:relative;display:inline-block;">
                         <button class="btn-action" onclick="toggleAccionesMenu('${p.id}', event)" title="Más opciones">
-                            <i class="fas fa-ellipsis-v"></i>
-                        </button>
-                        <div id="acciones-menu-${p.id}" class="acciones-menu hidden">
-                            ${menuItems}
-                        </div>
+                            <i class="fas fa-ellipsis-v"></i></button>
+                        <div id="acciones-menu-${p.id}" class="acciones-menu hidden">${menuItems}</div>
                     </span>
                 `;
             }
-
             return html;
         }
 
         function toggleAccionesMenu(pedidoId, event) {
             event.stopPropagation();
-            // Cerrar otros menús abiertos
             document.querySelectorAll('.acciones-menu').forEach(m => {
                 if (m.id !== `acciones-menu-${pedidoId}`) m.classList.add('hidden');
             });
             document.getElementById(`acciones-menu-${pedidoId}`).classList.toggle('hidden');
         }
 
-        // Click fuera cierra menús
         document.addEventListener('click', () => {
             document.querySelectorAll('.acciones-menu').forEach(m => m.classList.add('hidden'));
         });
 
-        // ========== CAMBIO DE ESTADO ==========
+        // ========== CAMBIO DE ESTADO Y PAGO ==========
         async function cambiarEstadoPedido(id, nuevoEstado) {
             try {
                 const res = await fetch(`${API_URL}/pedidos`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         action: 'cambiar_estado',
                         empresa_id: currentUser.empresa_id,
-                        pedido_id: id,
-                        nuevo_estado: nuevoEstado
+                        pedido_id: id, nuevo_estado: nuevoEstado
                     })
                 });
                 const data = await res.json();
@@ -1250,12 +1575,10 @@
         async function togglePagadoPedido(id) {
             try {
                 const res = await fetch(`${API_URL}/pedidos`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         action: 'toggle_pagado',
-                        empresa_id: currentUser.empresa_id,
-                        pedido_id: id
+                        empresa_id: currentUser.empresa_id, pedido_id: id
                     })
                 });
                 const data = await res.json();
@@ -1266,6 +1589,7 @@
                 const msg = data.pedido && data.pedido.pagado ? '✓ Marcado como pagado' : '✓ Marcado como no pagado';
                 showAlert('alertContainerPedidos', msg, 'success');
                 await cargarPedidos();
+                actualizarStats();
             } catch (error) {
                 showAlert('alertContainerPedidos', 'Error de conexión: ' + error.message, 'error');
             }
@@ -1280,15 +1604,10 @@
         function abrirAsignarChofer(pedidoId, clienteNombre) {
             event && event.stopPropagation && event.stopPropagation();
             pedidoEditandoChofer = pedidoId;
-
-            // Si el pedido ya tiene chofer, mostrarlo seleccionado
             const p = pedidosCache.find(x => x.id === pedidoId);
             const tituloEl = document.getElementById('choferModalTitulo');
-
             document.getElementById('choferModalCliente').textContent = clienteNombre;
             document.getElementById('choferModalOverlay').classList.remove('hidden');
-
-            // Reset visual
             document.getElementById('choferInput').value = '';
             document.getElementById('choferDropdown').classList.add('hidden');
             document.getElementById('choferSelected').classList.add('hidden');
@@ -1297,11 +1616,8 @@
 
             if (p && p.chofer_id) {
                 tituloEl.textContent = 'Cambiar chofer';
-                // Mostrar el chofer actual ya seleccionado
                 const ch = choferesCache.find(c => c.id === p.chofer_id);
-                if (ch) {
-                    selectChoferExistente(ch.id);
-                }
+                if (ch) selectChoferExistente(ch.id);
             } else {
                 tituloEl.textContent = 'Asignar chofer';
                 formChoferState = { mode: 'search', chofer_id: null, nombre: '' };
@@ -1315,7 +1631,6 @@
             formChoferState = { mode: 'search', chofer_id: null, nombre: '' };
         }
 
-        // Cerrar modal al hacer click fuera del card
         document.getElementById('choferModalOverlay')?.addEventListener('click', (e) => {
             if (e.target.id === 'choferModalOverlay') cerrarChoferModal();
         });
@@ -1324,39 +1639,28 @@
             const input = document.getElementById('choferInput');
             const dropdown = document.getElementById('choferDropdown');
             const query = input.value.trim().toLowerCase();
-
             if (query.length === 0) { dropdown.classList.add('hidden'); return; }
-
             const matches = choferesCache.filter(c => {
                 const n = (c.nombre || '').toLowerCase();
                 const t = (c.telefono || '').toLowerCase();
                 return n.includes(query) || t.includes(query);
             }).slice(0, 6);
-
             let html = '';
             for (const c of matches) {
                 const detalle = [c.telefono, c.vehiculo].filter(Boolean).join(' · ');
-                html += `
-                    <div class="dropdown-item" onclick="selectChoferExistente('${c.id}')">
-                        <div style="flex:1;min-width:0;">
-                            <strong>${escapeHtml(c.nombre)}</strong>
-                            <span style="color:#718096;font-size:12px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
-                                ${escapeHtml(detalle)}
-                            </span>
-                        </div>
-                    </div>
-                `;
+                html += `<div class="dropdown-item" onclick="selectChoferExistente('${c.id}')">
+                    <div style="flex:1;min-width:0;">
+                        <strong>${escapeHtml(c.nombre)}</strong>
+                        <span style="color:#718096;font-size:12px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                            ${escapeHtml(detalle)}</span>
+                    </div></div>`;
             }
-
             const exactMatch = matches.some(c => c.nombre.toLowerCase() === query);
             if (!exactMatch) {
-                html += `
-                    <div class="dropdown-item create-new" onclick="selectChoferNuevo()">
-                        <span><i class="fas fa-plus-circle"></i> Crear nuevo: "<strong>${escapeHtml(input.value)}</strong>"</span>
-                    </div>
-                `;
+                html += `<div class="dropdown-item create-new" onclick="selectChoferNuevo()">
+                    <span><i class="fas fa-plus-circle"></i> Crear nuevo: "<strong>${escapeHtml(input.value)}</strong>"</span>
+                </div>`;
             }
-
             dropdown.innerHTML = html;
             dropdown.classList.remove('hidden');
         }
@@ -1400,21 +1704,17 @@
 
         async function confirmarAsignacionChofer() {
             let choferId;
-
             if (formChoferState.mode === 'selected' && formChoferState.chofer_id) {
                 choferId = formChoferState.chofer_id;
             } else if (formChoferState.mode === 'new') {
                 if (!formChoferState.nombre) {
-                    showAlert('alertContainerPedidos', 'Falta nombre del chofer', 'error');
-                    return;
+                    showAlert('alertContainerPedidos', 'Falta nombre del chofer', 'error'); return;
                 }
                 try {
                     const res = await fetch(`${API_URL}/choferes`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        method: 'POST', headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            action: 'crear',
-                            empresa_id: currentUser.empresa_id,
+                            action: 'crear', empresa_id: currentUser.empresa_id,
                             nombre: formChoferState.nombre,
                             telefono: document.getElementById('newChoferTelefono').value.trim() || null,
                             vehiculo: document.getElementById('newChoferVehiculo').value.trim() || null
@@ -1422,35 +1722,27 @@
                     });
                     const data = await res.json();
                     if (!res.ok) {
-                        showAlert('alertContainerPedidos', data.error || 'Error al crear chofer', 'error');
-                        return;
+                        showAlert('alertContainerPedidos', data.error || 'Error al crear chofer', 'error'); return;
                     }
                     choferId = data.chofer.id;
                     await cargarChoferes();
                 } catch (e) {
-                    showAlert('alertContainerPedidos', 'Error de conexión al crear chofer', 'error');
-                    return;
+                    showAlert('alertContainerPedidos', 'Error de conexión al crear chofer', 'error'); return;
                 }
             } else {
-                showAlert('alertContainerPedidos', 'Selecciona o crea un chofer', 'error');
-                return;
+                showAlert('alertContainerPedidos', 'Selecciona o crea un chofer', 'error'); return;
             }
-
             try {
                 const res = await fetch(`${API_URL}/pedidos`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        action: 'asignar_chofer',
-                        empresa_id: currentUser.empresa_id,
-                        pedido_id: pedidoEditandoChofer,
-                        chofer_id: choferId
+                        action: 'asignar_chofer', empresa_id: currentUser.empresa_id,
+                        pedido_id: pedidoEditandoChofer, chofer_id: choferId
                     })
                 });
                 const data = await res.json();
                 if (!res.ok) {
-                    showAlert('alertContainerPedidos', data.error || 'Error al asignar chofer', 'error');
-                    return;
+                    showAlert('alertContainerPedidos', data.error || 'Error al asignar chofer', 'error'); return;
                 }
                 showAlert('alertContainerPedidos', '✓ Chofer asignado', 'success');
                 cerrarChoferModal();
@@ -1461,7 +1753,7 @@
             }
         }
 
-        // ========== FORMULARIO DE PEDIDO ==========
+        // ========== FORM PEDIDO + AUTOCOMPLETE CLIENTE/PRODUCTO ==========
         function mostrarFormPedido() {
             resetPedidoForm();
             const section = document.getElementById('formPedidoSection');
@@ -1471,12 +1763,10 @@
             section.scrollIntoView({ behavior: 'smooth', block: 'start' });
             setTimeout(() => document.getElementById('clienteInput').focus(), 100);
         }
-
         function cancelarPedido() {
             document.getElementById('formPedidoSection').classList.add('hidden');
             resetPedidoForm();
         }
-
         function resetPedidoForm() {
             resetCliente();
             productosPedido = [];
@@ -1486,44 +1776,32 @@
             document.getElementById('pedidoNotas').value = '';
         }
 
-        // ========== AUTOCOMPLETE: CLIENTE ==========
         function onClienteInput() {
             const input = document.getElementById('clienteInput');
             const dropdown = document.getElementById('clienteDropdown');
             const query = input.value.trim().toLowerCase();
-
             if (query.length === 0) { dropdown.classList.add('hidden'); return; }
-
             const matches = clientesCache.filter(c => {
                 const n = (c.nombre || '').toLowerCase();
                 const t = (c.telefono || '').toLowerCase();
                 return n.includes(query) || t.includes(query);
             }).slice(0, 6);
-
             let html = '';
             for (const c of matches) {
                 const detalle = [c.telefono, c.direccion].filter(Boolean).join(' · ');
-                html += `
-                    <div class="dropdown-item" onclick="selectClienteExistente('${c.id}')">
-                        <div style="flex:1;min-width:0;">
-                            <strong>${escapeHtml(c.nombre)}</strong>
-                            <span style="color:#718096;font-size:12px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
-                                ${escapeHtml(detalle)}
-                            </span>
-                        </div>
-                    </div>
-                `;
+                html += `<div class="dropdown-item" onclick="selectClienteExistente('${c.id}')">
+                    <div style="flex:1;min-width:0;">
+                        <strong>${escapeHtml(c.nombre)}</strong>
+                        <span style="color:#718096;font-size:12px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
+                            ${escapeHtml(detalle)}</span>
+                    </div></div>`;
             }
-
             const exactMatch = matches.some(c => c.nombre.toLowerCase() === query);
             if (!exactMatch) {
-                html += `
-                    <div class="dropdown-item create-new" onclick="selectClienteNuevo()">
-                        <span><i class="fas fa-plus-circle"></i> Crear nuevo: "<strong>${escapeHtml(input.value)}</strong>"</span>
-                    </div>
-                `;
+                html += `<div class="dropdown-item create-new" onclick="selectClienteNuevo()">
+                    <span><i class="fas fa-plus-circle"></i> Crear nuevo: "<strong>${escapeHtml(input.value)}</strong>"</span>
+                </div>`;
             }
-
             dropdown.innerHTML = html;
             dropdown.classList.remove('hidden');
         }
@@ -1566,7 +1844,6 @@
             setTimeout(() => document.getElementById('clienteInput').focus(), 50);
         }
 
-        // Cerrar dropdowns al click fuera
         document.addEventListener('click', (e) => {
             const cw = document.getElementById('clienteSearchWrapper');
             if (cw && !cw.contains(e.target)) {
@@ -1582,14 +1859,11 @@
             });
         });
 
-        // ========== PRODUCTOS DEL PEDIDO ==========
         function addProductoRow() {
             const idx = productosPedido.length;
             productosPedido.push({ producto_id: null, nombre: '', cantidad: 1, precio_unitario: 0 });
-
             const row = document.createElement('div');
-            row.className = 'producto-row';
-            row.dataset.idx = idx;
+            row.className = 'producto-row'; row.dataset.idx = idx;
             row.innerHTML = `
                 <div class="autocomplete-wrapper">
                     <input type="text" class="form-control prod-input" data-idx="${idx}"
@@ -1598,16 +1872,12 @@
                     <div class="autocomplete-dropdown hidden" data-dropdown-idx="${idx}"></div>
                 </div>
                 <input type="number" class="form-control prod-cantidad" data-idx="${idx}"
-                       min="1" value="1" placeholder="Cant"
-                       oninput="onProductoCantidadChange(${idx})">
+                       min="1" value="1" placeholder="Cant" oninput="onProductoCantidadChange(${idx})">
                 <input type="number" class="form-control prod-precio" data-idx="${idx}"
-                       min="0" step="0.01" value="0" placeholder="Precio"
-                       oninput="onProductoPrecioChange(${idx})">
+                       min="0" step="0.01" value="0" placeholder="Precio" oninput="onProductoPrecioChange(${idx})">
                 <span class="prod-subtotal" data-idx="${idx}">$0.00</span>
                 <button class="btn-icon-x" onclick="removeProductoRow(${idx})" title="Quitar">
-                    <i class="fas fa-times"></i>
-                </button>
-            `;
+                    <i class="fas fa-times"></i></button>`;
             document.getElementById('productosLista').appendChild(row);
             setTimeout(() => document.querySelector(`.prod-input[data-idx="${idx}"]`)?.focus(), 50);
         }
@@ -1617,39 +1887,29 @@
             const dropdown = document.querySelector(`.autocomplete-dropdown[data-dropdown-idx="${idx}"]`);
             const row = document.querySelector(`.producto-row[data-idx="${idx}"]`);
             const query = input.value.trim().toLowerCase();
-
             productosPedido[idx].nombre = input.value;
             productosPedido[idx].producto_id = null;
             row.classList.remove('is-existing'); row.classList.remove('is-new');
-
             if (query.length === 0) { dropdown.classList.add('hidden'); return; }
-
             const matches = productosCache.filter(p =>
                 (p.nombre || '').toLowerCase().includes(query)
             ).slice(0, 6);
-
             let html = '';
             for (const p of matches) {
-                html += `
-                    <div class="dropdown-item" onclick="selectProductoExistente(${idx}, '${p.id}')">
-                        <div style="flex:1;min-width:0;">
-                            <strong>${escapeHtml(p.nombre)}</strong>
-                            ${p.categoria ? `<span style="color:#718096;font-size:12px;display:block;">${escapeHtml(p.categoria)}</span>` : ''}
-                        </div>
-                        <span style="font-weight:700;color:#667eea;white-space:nowrap;">${formatCurrency(p.precio)}</span>
+                html += `<div class="dropdown-item" onclick="selectProductoExistente(${idx}, '${p.id}')">
+                    <div style="flex:1;min-width:0;">
+                        <strong>${escapeHtml(p.nombre)}</strong>
+                        ${p.categoria ? `<span style="color:#718096;font-size:12px;display:block;">${escapeHtml(p.categoria)}</span>` : ''}
                     </div>
-                `;
+                    <span style="font-weight:700;color:#667eea;white-space:nowrap;">${formatCurrency(p.precio)}</span>
+                </div>`;
             }
-
             const exactMatch = matches.some(p => p.nombre.toLowerCase() === query);
             if (!exactMatch) {
-                html += `
-                    <div class="dropdown-item create-new" onclick="markProductoAsNew(${idx})">
-                        <span><i class="fas fa-plus-circle"></i> Usar como nuevo: "<strong>${escapeHtml(input.value)}</strong>"</span>
-                    </div>
-                `;
+                html += `<div class="dropdown-item create-new" onclick="markProductoAsNew(${idx})">
+                    <span><i class="fas fa-plus-circle"></i> Usar como nuevo: "<strong>${escapeHtml(input.value)}</strong>"</span>
+                </div>`;
             }
-
             dropdown.innerHTML = html;
             dropdown.classList.remove('hidden');
         }
@@ -1660,17 +1920,12 @@
             productosPedido[idx].producto_id = id;
             productosPedido[idx].nombre = p.nombre;
             productosPedido[idx].precio_unitario = parseFloat(p.precio) || 0;
-
             document.querySelector(`.prod-input[data-idx="${idx}"]`).value = p.nombre;
-            document.querySelector(`.prod-precio[data-idx="${idx}"]`).value =
-                (parseFloat(p.precio) || 0).toFixed(2);
+            document.querySelector(`.prod-precio[data-idx="${idx}"]`).value = (parseFloat(p.precio) || 0).toFixed(2);
             document.querySelector(`.autocomplete-dropdown[data-dropdown-idx="${idx}"]`).classList.add('hidden');
-
             const row = document.querySelector(`.producto-row[data-idx="${idx}"]`);
             row.classList.add('is-existing'); row.classList.remove('is-new');
-
-            updateRowSubtotal(idx);
-            updateTotal();
+            updateRowSubtotal(idx); updateTotal();
         }
 
         function markProductoAsNew(idx) {
@@ -1725,8 +1980,7 @@
             } else if (formClienteState.mode === 'new') {
                 const direccion = document.getElementById('newClienteDireccion').value.trim();
                 if (!formClienteState.nombre || !direccion) {
-                    showAlert('alertContainerPedidos', 'El cliente nuevo necesita nombre y dirección', 'error');
-                    return;
+                    showAlert('alertContainerPedidos', 'El cliente nuevo necesita nombre y dirección', 'error'); return;
                 }
                 clientePayload = {
                     nombre: formClienteState.nombre,
@@ -1735,35 +1989,28 @@
                     referencia: document.getElementById('newClienteReferencia').value.trim() || null
                 };
             } else {
-                showAlert('alertContainerPedidos', 'Selecciona o crea un cliente primero', 'error');
-                return;
+                showAlert('alertContainerPedidos', 'Selecciona o crea un cliente primero', 'error'); return;
             }
 
             const items = productosPedido.filter(p => p !== null);
             if (items.length === 0) {
-                showAlert('alertContainerPedidos', 'Agrega al menos un producto', 'error');
-                return;
+                showAlert('alertContainerPedidos', 'Agrega al menos un producto', 'error'); return;
             }
             for (const item of items) {
                 if (!item.nombre || !item.nombre.trim()) {
-                    showAlert('alertContainerPedidos', 'Todos los productos deben tener nombre', 'error');
-                    return;
+                    showAlert('alertContainerPedidos', 'Todos los productos deben tener nombre', 'error'); return;
                 }
                 if (!item.cantidad || item.cantidad <= 0) {
-                    showAlert('alertContainerPedidos', 'Las cantidades deben ser mayores a 0', 'error');
-                    return;
+                    showAlert('alertContainerPedidos', 'Las cantidades deben ser mayores a 0', 'error'); return;
                 }
                 if (item.precio_unitario < 0) {
-                    showAlert('alertContainerPedidos', 'Los precios no pueden ser negativos', 'error');
-                    return;
+                    showAlert('alertContainerPedidos', 'Los precios no pueden ser negativos', 'error'); return;
                 }
             }
 
             const payload = {
-                action: 'crear',
-                empresa_id: currentUser.empresa_id,
-                created_by: currentUser.id,
-                cliente: clientePayload,
+                action: 'crear', empresa_id: currentUser.empresa_id,
+                created_by: currentUser.id, cliente: clientePayload,
                 items: items.map(i => ({
                     producto_id: i.producto_id || null,
                     nombre: i.nombre, cantidad: i.cantidad, precio_unitario: i.precio_unitario
@@ -1774,14 +2021,12 @@
 
             try {
                 const res = await fetch(`${API_URL}/pedidos`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
                 const data = await res.json();
                 if (!res.ok) {
-                    showAlert('alertContainerPedidos', data.error || 'Error al guardar pedido', 'error');
-                    return;
+                    showAlert('alertContainerPedidos', data.error || 'Error al guardar pedido', 'error'); return;
                 }
                 showAlert('alertContainerPedidos', '✓ Pedido creado exitosamente', 'success');
                 cancelarPedido();
@@ -1792,6 +2037,325 @@
             }
         }
 
+        // ========== REPORTES ==========
+        function prepararReportes() {
+            // Default: este mes
+            if (!document.getElementById('reporteFechaDesde').value) {
+                presetReporteFecha('mes');
+            }
+        }
+
+        function presetReporteFecha(preset) {
+            const hoy = new Date();
+            let desde, hasta;
+            if (preset === 'hoy') {
+                desde = hasta = fechaISO(hoy);
+            } else if (preset === 'semana') {
+                const inicio = new Date(hoy);
+                const dia = inicio.getDay() || 7;
+                inicio.setDate(inicio.getDate() - (dia - 1));
+                desde = fechaISO(inicio);
+                hasta = fechaISO(hoy);
+            } else if (preset === 'mes') {
+                desde = fechaISO(new Date(hoy.getFullYear(), hoy.getMonth(), 1));
+                hasta = fechaISO(hoy);
+            }
+            document.getElementById('reporteFechaDesde').value = desde;
+            document.getElementById('reporteFechaHasta').value = hasta;
+        }
+
+        function getPedidosParaReporte(desde, hasta, filtroExtra) {
+            return pedidosCache.filter(p => {
+                if (p.estado === 'cancelado' && filtroExtra !== 'todos') return false;
+                if (filtroExtra === 'entregado' && p.estado !== 'entregado') return false;
+                if (filtroExtra === 'pendiente_entrega' && p.estado === 'entregado') return false;
+                const f = (p.created_at || '').split('T')[0];
+                if (desde && f < desde) return false;
+                if (hasta && f > hasta) return false;
+                return true;
+            });
+        }
+
+        function generarReporte() {
+            const tipo = document.getElementById('reporteTipo').value;
+            const desde = document.getElementById('reporteFechaDesde').value;
+            const hasta = document.getElementById('reporteFechaHasta').value;
+            const filtroExtra = document.getElementById('reporteFiltroExtra').value;
+
+            if (!desde || !hasta) {
+                showAlert('alertContainerReportes', 'Selecciona el rango de fechas', 'error');
+                return;
+            }
+
+            const pedidos = getPedidosParaReporte(desde, hasta, filtroExtra);
+
+            const preview = document.getElementById('reportePreview');
+            const acciones = document.getElementById('reporteImprimirActions');
+
+            let contenido = '';
+            if (tipo === 'general') contenido = renderReporteGeneral(pedidos, desde, hasta);
+            else if (tipo === 'chofer') contenido = renderReportePorChofer(pedidos, desde, hasta);
+            else if (tipo === 'cobranzas') contenido = renderReporteCobranzas(pedidos, desde, hasta);
+
+            preview.innerHTML = contenido;
+            preview.style.display = 'block';
+            acciones.style.display = 'flex';
+            preview.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function cerrarReporte() {
+            document.getElementById('reportePreview').style.display = 'none';
+            document.getElementById('reporteImprimirActions').style.display = 'none';
+        }
+
+        function reporteHeader(titulo, desde, hasta) {
+            return `
+                <div class="reporte-titulo">
+                    <div class="empresa-nombre">${escapeHtml(currentUser.empresa_nombre || '')}</div>
+                    <div class="empresa-info">Generado: ${new Date().toLocaleString('es-EC')}</div>
+                    <h1>${titulo}</h1>
+                    <div class="rango">Período: ${formatFecha(desde)} — ${formatFecha(hasta)}</div>
+                </div>
+            `;
+        }
+
+        function reporteFooter(totalPedidos) {
+            return `<div class="reporte-pie">Reporte generado por App Retail · ${totalPedidos} pedidos en este informe</div>`;
+        }
+
+        function renderReporteGeneral(pedidos, desde, hasta) {
+            if (pedidos.length === 0) {
+                return reporteHeader('Reporte general de pedidos', desde, hasta) +
+                    `<div class="empty-state"><p>No hay pedidos en el rango seleccionado.</p></div>`;
+            }
+
+            const totalVentas = pedidos.reduce((s, p) => s + (parseFloat(p.total) || 0), 0);
+            const cobrado = pedidos.filter(p => p.pagado).reduce((s, p) => s + (parseFloat(p.total) || 0), 0);
+            const porCobrar = totalVentas - cobrado;
+
+            let html = reporteHeader('Reporte general de pedidos', desde, hasta);
+
+            html += `
+                <div class="reporte-resumen">
+                    <div class="reporte-resumen-card">
+                        <div class="label">Pedidos</div>
+                        <div class="value">${pedidos.length}</div>
+                    </div>
+                    <div class="reporte-resumen-card">
+                        <div class="label">Total ventas</div>
+                        <div class="value">${formatCurrency(totalVentas)}</div>
+                    </div>
+                    <div class="reporte-resumen-card success">
+                        <div class="label">Cobrado</div>
+                        <div class="value">${formatCurrency(cobrado)}</div>
+                    </div>
+                    <div class="reporte-resumen-card danger">
+                        <div class="label">Por cobrar</div>
+                        <div class="value">${formatCurrency(porCobrar)}</div>
+                    </div>
+                </div>
+            `;
+
+            html += `<table class="reporte-table">
+                <thead><tr>
+                    <th>Fecha</th>
+                    <th>Cliente</th>
+                    <th>Productos</th>
+                    <th>Chofer</th>
+                    <th>Estado</th>
+                    <th>Pago</th>
+                    <th style="text-align:right;">Total</th>
+                </tr></thead>
+                <tbody>`;
+
+            for (const p of pedidos) {
+                const items = (p.items || []).map(i => `${i.cantidad}× ${escapeHtml(i.producto_nombre)}`).join(', ');
+                html += `<tr>
+                    <td>${formatFecha(p.created_at)}</td>
+                    <td><strong>${escapeHtml(p.cliente_nombre)}</strong>${p.cliente_telefono ? `<br><small>${escapeHtml(p.cliente_telefono)}</small>` : ''}</td>
+                    <td>${items}</td>
+                    <td>${p.chofer_nombre ? escapeHtml(p.chofer_nombre) : '<em>—</em>'}</td>
+                    <td><span class="badge badge-${p.estado}">${p.estado.replace('_', ' ')}</span></td>
+                    <td>${p.pagado ? '<span class="pago-badge pagado">Pagado</span>' : '<span class="pago-badge no-pagado">No pagado</span>'}</td>
+                    <td style="text-align:right;"><strong>${formatCurrency(p.total)}</strong></td>
+                </tr>`;
+            }
+
+            html += `</tbody></table>`;
+            html += `<div class="reporte-total-final">Total general: <strong>${formatCurrency(totalVentas)}</strong></div>`;
+            html += reporteFooter(pedidos.length);
+
+            return html;
+        }
+
+        function renderReportePorChofer(pedidos, desde, hasta) {
+            if (pedidos.length === 0) {
+                return reporteHeader('Reporte por chofer', desde, hasta) +
+                    `<div class="empty-state"><p>No hay pedidos en el rango seleccionado.</p></div>`;
+            }
+
+            // Agrupar por chofer
+            const grupos = {};
+            for (const p of pedidos) {
+                const key = p.chofer_id || 'sin_chofer';
+                if (!grupos[key]) {
+                    grupos[key] = {
+                        nombre: p.chofer_nombre || 'Sin chofer asignado',
+                        telefono: p.chofer_telefono || '',
+                        pedidos: []
+                    };
+                }
+                grupos[key].pedidos.push(p);
+            }
+
+            let html = reporteHeader('Reporte por chofer', desde, hasta);
+
+            const totalGeneral = pedidos.reduce((s, p) => s + (parseFloat(p.total) || 0), 0);
+
+            html += `
+                <div class="reporte-resumen">
+                    <div class="reporte-resumen-card">
+                        <div class="label">Choferes activos</div>
+                        <div class="value">${Object.keys(grupos).length}</div>
+                    </div>
+                    <div class="reporte-resumen-card">
+                        <div class="label">Pedidos totales</div>
+                        <div class="value">${pedidos.length}</div>
+                    </div>
+                    <div class="reporte-resumen-card">
+                        <div class="label">Total ventas</div>
+                        <div class="value">${formatCurrency(totalGeneral)}</div>
+                    </div>
+                </div>
+            `;
+
+            for (const key of Object.keys(grupos)) {
+                const g = grupos[key];
+                const subtotal = g.pedidos.reduce((s, p) => s + (parseFloat(p.total) || 0), 0);
+                const entregados = g.pedidos.filter(p => p.estado === 'entregado').length;
+
+                html += `<div class="reporte-seccion">
+                    <h3>${escapeHtml(g.nombre)}${g.telefono ? ' · ' + escapeHtml(g.telefono) : ''}</h3>
+                    <div class="reporte-seccion-info">
+                        ${g.pedidos.length} pedidos · ${entregados} entregados · ${formatCurrency(subtotal)} total
+                    </div>
+                    <table class="reporte-table">
+                        <thead><tr>
+                            <th>Fecha</th><th>Cliente</th><th>Dirección</th><th>Productos</th>
+                            <th>Estado</th><th>Pago</th><th style="text-align:right;">Total</th>
+                        </tr></thead>
+                        <tbody>`;
+                for (const p of g.pedidos) {
+                    const items = (p.items || []).map(i => `${i.cantidad}× ${escapeHtml(i.producto_nombre)}`).join(', ');
+                    html += `<tr>
+                        <td>${formatFecha(p.created_at)}</td>
+                        <td><strong>${escapeHtml(p.cliente_nombre)}</strong>${p.cliente_telefono ? `<br><small>${escapeHtml(p.cliente_telefono)}</small>` : ''}</td>
+                        <td>${escapeHtml(p.cliente_direccion || '')}</td>
+                        <td>${items}</td>
+                        <td><span class="badge badge-${p.estado}">${p.estado.replace('_', ' ')}</span></td>
+                        <td>${p.pagado ? '<span class="pago-badge pagado">Pagado</span>' : '<span class="pago-badge no-pagado">No pagado</span>'}</td>
+                        <td style="text-align:right;"><strong>${formatCurrency(p.total)}</strong></td>
+                    </tr>`;
+                }
+                html += `</tbody></table>
+                    <div class="reporte-seccion-subtotal">Subtotal ${escapeHtml(g.nombre)}: ${formatCurrency(subtotal)}</div>
+                </div>`;
+            }
+
+            html += `<div class="reporte-total-final">Total general: <strong>${formatCurrency(totalGeneral)}</strong></div>`;
+            html += reporteFooter(pedidos.length);
+
+            return html;
+        }
+
+        function renderReporteCobranzas(pedidos, desde, hasta) {
+            const noPagados = pedidos.filter(p => !p.pagado && p.estado !== 'cancelado');
+
+            if (noPagados.length === 0) {
+                return reporteHeader('Cuentas por cobrar', desde, hasta) +
+                    `<div class="empty-state" style="padding:40px;">
+                        <i class="fas fa-circle-check" style="color:#059669;font-size:48px;"></i>
+                        <p style="color:#065f46;font-weight:600;margin-top:12px;">¡No hay deudas pendientes en este período!</p>
+                    </div>`;
+            }
+
+            // Agrupar por cliente
+            const grupos = {};
+            for (const p of noPagados) {
+                const key = p.cliente_id;
+                if (!grupos[key]) {
+                    grupos[key] = {
+                        nombre: p.cliente_nombre,
+                        telefono: p.cliente_telefono || '',
+                        direccion: p.cliente_direccion || '',
+                        pedidos: []
+                    };
+                }
+                grupos[key].pedidos.push(p);
+            }
+
+            let html = reporteHeader('Cuentas por cobrar', desde, hasta);
+
+            const totalDeuda = noPagados.reduce((s, p) => s + (parseFloat(p.total) || 0), 0);
+
+            html += `
+                <div class="reporte-resumen">
+                    <div class="reporte-resumen-card">
+                        <div class="label">Clientes con deuda</div>
+                        <div class="value">${Object.keys(grupos).length}</div>
+                    </div>
+                    <div class="reporte-resumen-card">
+                        <div class="label">Pedidos pendientes</div>
+                        <div class="value">${noPagados.length}</div>
+                    </div>
+                    <div class="reporte-resumen-card danger">
+                        <div class="label">Total por cobrar</div>
+                        <div class="value">${formatCurrency(totalDeuda)}</div>
+                    </div>
+                </div>
+            `;
+
+            // Ordenar por mayor deuda primero
+            const orden = Object.keys(grupos).sort((a, b) => {
+                const sa = grupos[a].pedidos.reduce((s, p) => s + (parseFloat(p.total) || 0), 0);
+                const sb = grupos[b].pedidos.reduce((s, p) => s + (parseFloat(p.total) || 0), 0);
+                return sb - sa;
+            });
+
+            for (const key of orden) {
+                const g = grupos[key];
+                const subtotal = g.pedidos.reduce((s, p) => s + (parseFloat(p.total) || 0), 0);
+
+                html += `<div class="reporte-seccion">
+                    <h3>${escapeHtml(g.nombre)} — Debe: ${formatCurrency(subtotal)}</h3>
+                    <div class="reporte-seccion-info">
+                        ${g.telefono ? '📞 ' + escapeHtml(g.telefono) + ' · ' : ''}
+                        ${g.direccion ? '📍 ' + escapeHtml(g.direccion) : ''}
+                    </div>
+                    <table class="reporte-table">
+                        <thead><tr>
+                            <th>Fecha pedido</th><th>Productos</th><th>Estado entrega</th>
+                            <th style="text-align:right;">Monto</th>
+                        </tr></thead>
+                        <tbody>`;
+                for (const p of g.pedidos) {
+                    const items = (p.items || []).map(i => `${i.cantidad}× ${escapeHtml(i.producto_nombre)}`).join(', ');
+                    html += `<tr>
+                        <td>${formatFecha(p.created_at)}</td>
+                        <td>${items}</td>
+                        <td><span class="badge badge-${p.estado}">${p.estado.replace('_', ' ')}</span></td>
+                        <td style="text-align:right;"><strong>${formatCurrency(p.total)}</strong></td>
+                    </tr>`;
+                }
+                html += `</tbody></table></div>`;
+            }
+
+            html += `<div class="reporte-total-final">Total por cobrar: <strong>${formatCurrency(totalDeuda)}</strong></div>`;
+            html += reporteFooter(noPagados.length);
+
+            return html;
+        }
+
         // ========== INIT ==========
         window.onload = () => {
             const saved = localStorage.getItem('user');
@@ -1799,9 +2363,7 @@
                 try {
                     currentUser = JSON.parse(saved);
                     showDashboard();
-                } catch (e) {
-                    localStorage.removeItem('user');
-                }
+                } catch (e) { localStorage.removeItem('user'); }
             }
         };
     </script>
